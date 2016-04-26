@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TimelineTable extends Migration
+class CreateUserRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,10 @@ class TimelineTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('user_roles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +25,6 @@ class TimelineTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('user_roles');
     }
 }

@@ -14,6 +14,14 @@ class CreateBabiesTable extends Migration
     {
         Schema::create('babies', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->integer('mother_id');
+            $table->date('birth_date');
+            $table->float('height');
+            $table->float('weight');
+            $table->string('condition');
+            $table->integer('id_picture')->nullable();
+            $table->integer('document_index')->nullable();
             $table->timestamps();
         });
     }

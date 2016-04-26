@@ -14,6 +14,8 @@ class CreateBabymomentsTable extends Migration
     {
         Schema::create('babymoments', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('baby_id');
+            $table->string('description');
             $table->timestamps();
         });
     }

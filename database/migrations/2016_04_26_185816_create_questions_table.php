@@ -14,6 +14,10 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('ask_id');
+            $table->integer('answer_id')->nullable();
+            $table->mediumText('question');
+            $table->mediumText('answer')->nullable();
             $table->timestamps();
         });
     }
