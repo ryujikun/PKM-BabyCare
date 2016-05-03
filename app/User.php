@@ -43,6 +43,6 @@ class User extends Authenticatable
     }
 
     public function baby(){
-        return $this->hasOne('App\Baby','mother_id');
+        return $this->hasOne('App\Baby');
     }
 }

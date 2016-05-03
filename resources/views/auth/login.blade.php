@@ -1,66 +1,41 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {!! csrf_field() !!}
+<head>
+    @include('includes.header')
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+    <link rel='stylesheet' href='{{ url("assets/css/loginstyle.css") }}'
+</head>
 
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+<body>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+<div id="main-carousel" class="carousel slide carousel-fade carousel-bg">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <!-- First slide -->
+            <div class="item active">
+                <div class="carousel-caption">
+                    <div class="verticalcenter">
+                        <div class="animated fadeInDown">
+                            <h4>Material Design for Bootstrap</h4>
+                            <h5>The best and free framework for Bootstrap</h5>
+                            <a href="http://mdbootstrap.com/material-design-for-bootstrap/" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-download right"></i>Get started</a>
+                            <a href="http://mdbootstrap.com/product/material-design-for-bootstrap-pro/" target="_blank" class="btn btn-primary btn-etc waves-effect waves-light"><i class="fa fa-star right"></i>Go Pro</a>
                         </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i>Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
+            <!-- /.First slide -->
+
         </div>
-    </div>
-</div>
-@endsection
+        <!-- /.carousel-inner -->
+
+
+  <!-- Footer -->
+  @include('includes.scripts')
+
+
+
+</body>
+
+</html>

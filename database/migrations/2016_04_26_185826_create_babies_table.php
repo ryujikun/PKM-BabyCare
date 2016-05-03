@@ -19,6 +19,7 @@ class CreateBabiesTable extends Migration
             $table->float('height');
             $table->float('weight');
             $table->string('condition');
+            $table->integer('mother_id');
             $table->integer('id_picture')->nullable();
             $table->integer('document_index')->nullable();
             $table->timestamps();
