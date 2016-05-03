@@ -1,0 +1,21 @@
+
+html,
+body {
+    height: 100%;
+}
+
+/*********************
+  MAIN IMAGE
+**********************/
+.full-bg-img {
+    background: url("/home/rsns/Pictures/_timthumb-project-code.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.top-nav-collapse {
+    background-color: #4285F4;
+}
+

@@ -12,12 +12,13 @@ class UserRoleSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user_roles')->insert(
-            ['user_id' => 1, 'role_id' => 3 ],
-            ['user_id' => 13, 'role_id' => 3 ],
-            ['user_id' => 14, 'role_id' => 3 ],
-            ['user_id' => 15, 'role_id' => 3 ],
-            ['user_id' => 2, 'role_id' => 2 ]
+        DB::table('user_roles')->insert([
+                ['user_id' => 1, 'role_id' => 3 ],
+                ['user_id' => 13, 'role_id' => 3 ],
+                ['user_id' => 14, 'role_id' => 3 ],
+                ['user_id' => 15, 'role_id' => 3 ],
+                ['user_id' => 2, 'role_id' => 2 ]
+            ]
         );
 
         for($x=3; $x<13;$x++ ){

@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateUsersTable extends Migration
 {
     /**
@@ -18,8 +17,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('address')->nullable();
+            $table->integer('baby_id');
             $table->date('birth_date');
-            $table->string('phone_number');
+            $table->string('phone');
             $table->integer('picture_id')->nullable();
             $table->rememberToken();
             $table->timestamps();

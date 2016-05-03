@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'baby_id', 'email', 'password', 'address', 'birth_date', 'phone','picture_id'
     ];
 
     /**
@@ -21,6 +21,28 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token'
     ];
+
+    public function role(){
+        return $this->belongsToMany('App\Role', 'user_roles');
+    }
+
+    public function isMommy(){
+        return $this->role()->id == 1;
+    }
+    public function isKader(){
+        return $this->role()->id == 2;
+    }
+    public function isDoctor(){
+        return $this->role()->id == 3;
+    }
+
+    public function question(){
+        return $this->hasMany('App\Question');
+    }
+
+    public function baby(){
+        return $this->hasOne('App\Baby','mother_id');
+    }
 }
