@@ -15,12 +15,20 @@
             <!-- First slide -->
             <div class="item active">
                 <div class="carousel-caption">
-                    <div class="verticalcenter">
+                    <div style=''>
                         <div class="animated fadeInDown">
-                            <h4>Material Design for Bootstrap</h4>
-                            <h5>The best and free framework for Bootstrap</h5>
-                            <a href="http://mdbootstrap.com/material-design-for-bootstrap/" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-download right"></i>Get started</a>
-                            <a href="http://mdbootstrap.com/product/material-design-for-bootstrap-pro/" target="_blank" class="btn btn-primary btn-etc waves-effect waves-light"><i class="fa fa-star right"></i>Go Pro</a>
+                              <h4>Login</h4>
+                              <form class="col-md-4 ">
+                                  <div class="input-field ">
+                                    <input id="email" type="email" class="validate">
+                                    <label>Email</label>
+                                  </div>
+                                  <div class="input-field">
+                                    <input id="password" type="password" class="validate">
+                                    <label>Password</label>
+                                  </div>
+                              </form>
+                            
                         </div>
                     </div>
                 </div>
