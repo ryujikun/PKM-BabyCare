@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts.templates')
 
 @section('page-title')
