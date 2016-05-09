@@ -1,82 +1,120 @@
-@extends('layouts.app')
+@extends('layouts.templates')
+
+@section('page-title')
+    Register Babycare
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {!! csrf_field() !!}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Name</label>
+</div>
 
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <div class="row">
+                <form class="col s12" role="form" method="POST" action="{{ url('/register') }}">
+                    <h2 class="header">Register BabyCare</h2>
+                    <br>
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Nama lengkap" id="first_name" type="text" name='name' class="validate">
+                            <label for="name">Nama Lengkap</label>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
+                            @if ($errors->has('name'))
+                                <span class="red-text text-darken-1">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="date" name='birth_date' class="datepicker">
+                            <label for="birth_date">Tanggal Lahir</label>
+                            @if ($errors->has('birth_date'))
+                                <span class="red-text text-darken-1">
+                                        <strong>{{ $errors->first('birth_date') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="address">Alamat</label>
+                            <textarea id="address" name='address' class="materialize-textarea"></textarea>
+                            @if ($errors->has('address'))
+                                <span class="red-text text-darken-1">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="phone" type="number" name='phone' class="validate">
+                            <label for="phone">Nomor Telefon</label>
+                            @if ($errors->has('phone'))
+                                <span class="red-text text-darken-1">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" name='email' class="validate">
+                            <label for="email">Email</label>
+                            @if ($errors->has('email'))
+                                <span class="red-text text-darken-1">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" name='password' type="password" class="validate">
+                            <label for="password">Password</label>
+                            @if ($errors->has('password'))
+                                <span class="red-text text-darken-1">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation">
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password_confirmation" name='password_confirmation' type="password" class="validate">
+                            <label for="password_confirmation">Konfirmasi Password</label>
+                            @if ($errors->has('password_confirmation'))
+                                <span class="red-text text-darken-1">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <button class="btn btn-large waves-effect waves-light right" type="submit" name="action">Daftar Sekarang
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
             </div>
+
         </div>
     </div>
-</div>
+
+@endsection
+
+@section('custom-foot')
+
+    <script type="text/javascript">
+        $('#address').val('New Text');
+        $('#address').trigger('autoresize');
+
+        $('.datepicker').pickadate({
+            selectYears:true,
+            selectYears: 60
+        });
+
+    </script>
+
 @endsection

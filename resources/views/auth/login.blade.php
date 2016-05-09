@@ -1,41 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.templates')
 
-<head>
-    @include('includes.header')
+@section('page-title')
+    Register Babycare
+    @endsection
 
-    <link rel='stylesheet' href='{{ url("assets/css/loginstyle.css") }}'
-</head>
+    @section('content')
 
-<body>
+    </div>
 
-<div id="main-carousel" class="carousel slide carousel-fade carousel-bg">
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <!-- First slide -->
-            <div class="item active">
-                <div class="carousel-caption">
-                    <div class="verticalcenter">
-                        <div class="animated fadeInDown">
-                            <h4>Material Design for Bootstrap</h4>
-                            <h5>The best and free framework for Bootstrap</h5>
-                            <a href="http://mdbootstrap.com/material-design-for-bootstrap/" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-download right"></i>Get started</a>
-                            <a href="http://mdbootstrap.com/product/material-design-for-bootstrap-pro/" target="_blank" class="btn btn-primary btn-etc waves-effect waves-light"><i class="fa fa-star right"></i>Go Pro</a>
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <div class="row">
+                <form class="col s12" role="form" method="POST" action="{{ url('/login') }}">
+                    <h2 class="header">Log In Babycare</h2>
+                    <br>
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" name='email' class="validate">
+                            <label for="email">Email</label>
+                            @if ($errors->has('email'))
+                                <span class="red-text text-darken-1">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                            @endif
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" name='password' type="password" class="validate">
+                            <label for="password">Password</label>
+                            @if ($errors->has('password'))
+                                <span class="red-text text-darken-1">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+                    <button class="btn btn-large waves-effect waves-light right" type="submit" name="action">
+                        log In
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
             </div>
-            <!-- /.First slide -->
 
         </div>
-        <!-- /.carousel-inner -->
+    </div>
 
+@endsection
 
-  <!-- Footer -->
-  @include('includes.scripts')
+@section('custom-foot')
 
+    <script type="text/javascript">
+        $('#address').val('New Text');
+        $('#address').trigger('autoresize');
 
+        $('.datepicker').pickadate({
+            selectYears:true,
+            selectYears: 60
+        });
 
-</body>
+    </script>
 
-</html>
+@endsection

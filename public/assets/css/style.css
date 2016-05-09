@@ -1,21 +1,14 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
 
-html,
-body {
-    height: 100%;
+.icon-block {
+  padding: 0 15px;
 }
-
-/*********************
-  MAIN IMAGE
-**********************/
-.full-bg-img {
-    background: url("/home/rsns/Pictures/_timthumb-project-code.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.icon-block .material-icons {
+	font-size: inherit;
 }
-
-.top-nav-collapse {
-    background-color: #4285F4;
-}
-

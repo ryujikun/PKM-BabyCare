@@ -8,9 +8,10 @@ class Role extends Model
 {
     protected $table = 'roles';
 
-    protected fillable = ['name'];
+    protected $fillable = ['name'];
+    public $incrementing = true;
 
     public function user(){
-        return $this->hasMany('App\User');
+        return $this->belongsToMany('App\User');
     }
 }

@@ -76,6 +76,8 @@
   @include('includes.footer')
   @include('includes.scripts')
 
+  @yield('custom_foot')
+
 
 
 </body>

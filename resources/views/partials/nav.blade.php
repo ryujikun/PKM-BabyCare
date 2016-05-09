@@ -1,41 +1,57 @@
-  <nav class="navbar z-depth-2 info-color">
-    <div class="container ">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand waves-effect waves-light" href="#">MDBootstrap</a>
-      </div>
+<nav class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="#products" class="waves-effect waves-light">Products <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">List (click to expand) <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">Video Maker</a>
-              </li>
-              <li><a href="http://mdbootstrap.com/material-design-for-bootstrap/">Material Design for Bootstrap</a>
-              </li>
-              <li><a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">Creative Agency</a>
-              </li>
-              <li><a href="http://mdbootstrap.com/product/magic-portfolio-photographer">Photographer Portfolio</a>
-              </li>
-              <li class="divider"></li>
-              <li><a href="#footer">Footer</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-right waves-effect waves-light" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-        </form>
-      </div>
-    </div>
-  </nav>
+
+      @if(!Auth::user())
+          <li><a href="{{ url('/login') }}">Log In</a>
+          <li><a href="{{ url('/register') }}">Register</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+          <li><a href="{{ url('/login') }}">Log In</a>
+          <li><a href="{{ url('/register') }}">Register</a></li>
+      </ul>
+      @elseif(Auth::user()->isMommy())
+      <li><a href="{{ url('dokterpeduli') }}">Dokter Peduli</a></li>
+      <li><a href="{{ url('explore') }}">Explore</a></li>
+      <li><a href="{{ url('babyzone') }}">Zona Bayi</a></li>
+      <li><a href="{{ url('motherzone') }}">Zona Ibu</a></li>
+      <li><a href="{{ url('pertumbuhanku') }}">Pertumbuhanku</a></li>
+      <li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>
+        <li><a href="{{ url('logout') }}">Logout</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="{{ url('dokterpeduli') }}">Dokter Peduli</a></li>
+      <li><a href="{{ url('explore') }}">Explore</a></li>
+      <li><a href="{{ url('babyzone') }}">Zona Bayi</a></li>
+      <li><a href="{{ url('motherzone') }}">Zona Ibu</a></li>
+      <li><a href="{{ url('pertumbuhanku') }}">Pertumbuhanku</a></li>
+      <li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>
+        <li><a href="{{ url('logout') }}">Logout</a></li>
+    </ul>
+      @elseif(Auth::user()->isDoctor())
+      <li><a href="{{ url('questions/answer') }}">Jawab Pertanyaan</a></li>
+      <li><a href="{{ url('questions') }}">Daftar Pertanyaan</a></li>
+      <li><a href="{{ url('logout') }}">Logout</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+      <li><a href="{{ url('questions/answer') }}">Jawab Pertanyaan</a></li>
+      <li><a href="{{ url('questions') }}">Daftar Pertanyaan</a></li>
+      <li><a href="{{ url('logout') }}">Logout</a></li>
+      </ul>
+    @elseif(Auth::user()->isKader())
+      <li><a href="{{ url('babydata') }}">Masukkan Data Bayi</a></li>
+      <li><a href="{{ url('logout') }}">Logout</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+      <li><a href="{{ url('babydata') }}">Masukkan Data Bayi</a></li>
+      <li><a href="{{ url('logout') }}">Logout</a></li>
+      </ul>
+    @endif
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>

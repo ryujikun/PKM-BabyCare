@@ -12,9 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.user');
+    return view('layouts.templates');
 });
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+//
+Route::get('dokterpeduli', 'MotherController@dokterpeduli');
+Route::get('explore', 'MotherController@explore');
+Route::get('babyzone','MotherController@babyzone');
+Route::get('motherzone','MotherController@motherzone');
+Route::post('motherzone', 'MotherController@motherzone');
+Route::get('pertumbuhanku','MotherController@pertumbuhanku');
+Route::get('pertumbuhanku/jadwal', 'MotherController@jadwal');
+Route::get('ibusiaga','MotherController@ibusiaga');

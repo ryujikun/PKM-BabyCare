@@ -1,11 +1,7 @@
 
-    <!-- SCRIPTS -->
 
-    <!-- JQuery -->
-    <script type="text/javascript" src="{{ url('assets/js/jquery.min.js') }}"></script>
+    <!--  Scripts-->
+    <script type="text/javascript" src="{{ url('assets/js/jquery-2.1.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('assets/js/materialize.js') }}"></script>
+    <script type="text/javascript" src="{{ url('assets/js/init.js') }}"></script>
 
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="{{ url('assets/js/bootstrap.min.js') }}"></script>
-
-    <!-- Material Design Bootstrap -->
-    <script type="text/javascript" src="{{ url('assets/js/mdb.js') }}"></script>

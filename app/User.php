@@ -25,17 +25,17 @@ class User extends Authenticatable
     ];
 
     public function role(){
-        return $this->belongsToMany('App\Role', 'user_roles');
+        return $this->belongsToMany('App\Role', 'user_roles','user_id','role_id');
     }
 
     public function isMommy(){
-        return $this->role()->id == 1;
+        return $this->role->first()->id == 1;
     }
     public function isKader(){
-        return $this->role()->id == 2;
+        return $this->role->first()->id == 2;
     }
     public function isDoctor(){
-        return $this->role()->id == 3;
+        return $this->role->first()->id == 3;
     }
 
     public function question(){
