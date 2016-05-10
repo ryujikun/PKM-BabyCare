@@ -3,6 +3,7 @@
 
 <head>
     @include('includes.header')
+  @include('includes.scripts')
 </head>
 
 <body>
@@ -74,7 +75,6 @@
 
   <!-- Footer -->
   @include('includes.footer')
-  @include('includes.scripts')
 
   @yield('custom_foot')
 

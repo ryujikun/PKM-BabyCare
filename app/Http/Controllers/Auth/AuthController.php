@@ -63,10 +63,21 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'address' => $data['address'],
+            'birth_date' => $data['birth_date']
+
         ]);
+        $role = [
+            'user_id' => $user->id,
+            'role_id' => 1
+        ];
+        Role::create($role);
+
+        return redirect('login')->with('success','Berhasil Registrasi');
     }
 }

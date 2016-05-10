@@ -46,7 +46,7 @@
                                 <span class="red-text text-darken-1">
                                         <strong>{{ $errors->first('address') }}</strong>
                                     </span>
-                            @endif
+                            @endif  
                         </div>
                     </div>
                     <div class="row">
