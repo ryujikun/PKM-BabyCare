@@ -57,7 +57,7 @@ class MotherController extends Controller
             }
 
             $post = Timeline::create(['path_picture' => '']);
-            $path_picture = 'post-' . $post->id . '.'. $file->getClientOriginalExtension();
+            $path_picture = 'timeline-' . $post->id . '.'. $file->getClientOriginalExtension();
 
             if ($file->move(base_path() . '/public/images/web/' , $path_picture))
             {
@@ -70,15 +70,8 @@ class MotherController extends Controller
                 return view($this->viewPrefix . 'explore', $data)
                     ->with('error', 'Maaf ada kesalahan, silahkan coba lagi.');
             }
+
         }
-
-    }
-
-
-
-    public function babyzone(){
-        return view($this->viewPrefix.'babyzone');
-
     }
 
     public function motherzone(Request $request){
@@ -90,12 +83,37 @@ class MotherController extends Controller
         elseif($request->isMethod('post')){
             $data = $request->only('body');
             $data['user_id'] = $request->user()->id;
-            if(Post::create($data))
-                return redirect('motherzone')->with('success','Postingan anda telah dipost');
+            $postItem = Post::create($data);
+            if($postItem){
+                if($request->only('image')){
+                    $file = $request->file('image');
+                    $validator = $this->imageValidator($request->only('image'));
+
+                    if ($validator->fails()) {
+                        $this->throwValidationException($request, $validator);
+                    }
+
+                    $path_picture = 'post-' . $postItem->id . '.'. $file->getClientOriginalExtension();
+
+                    if ($file->move(base_path() . '/public/images/web/' , $path_picture))
+                    {
+                        $postItem->path_picture = $path_picture;
+                        $postItem->save();
+                        return redirect('motherzone')
+                            ->with('success', 'Gambar telah sukses diupload!');
+                    }
+                    else
+                    {
+                        return redirect('motherzone')->withErrors('Maaf ada kesalahan, silahkan coba lagi');
+                    }
+                }
+
+                redirect('motherzone');
+            }
             else
                 return redirect('motherzone')->with('danger','Maaf, postingan anda tidak dapat dipost, silahkan coba lagi');
-
         }
+
     }
 
     public function pertumbuhanku(Request $request){

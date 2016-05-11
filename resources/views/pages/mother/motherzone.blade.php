@@ -11,6 +11,21 @@
 
     <div class="container">
         <h2 class="header">Zona Ibu</h2>
+        <blockquote>
+            {{--{{ dd($success) }}--}}
+            @if ($errors->has())
+                @foreach ($errors->all() as $error)
+                    <span class="red-text">
+                        {{ $error }}
+                    </span> <br>
+                @endforeach
+            @elseif (isset($success))
+                <span class="green-text">
+                    {{ $success }}
+                </span>
+            @endif
+
+        </blockquote>
 
         <div class="row">
             <div class="col s12">
@@ -20,7 +35,9 @@
                         <p class="flow-text">{{ $item->user->name }}</p>
                         <p> {{ $item->created_at }}</p>
                         <hr>
-                        {{--<img class='materialboxed' width='100%' src="{{url('images/baby1.jpg')}}" style="max-height:10%;">--}}
+                        @if($item->path_picture)
+                            <img class='materialboxed' width='100%' src="{{url('images/web/'.$item->path_picture)}}" style="max-height:10%;">
+                        @endif
                         <p>{{ $item->body }}</p>
                     </div>
                 </div>
@@ -39,7 +56,7 @@
         <div class="modal-content">
             <h4>Post Tips dan Trik</h4>
 
-            <form class="col s12" method="post" action="">
+            <form class="col s12" method="post" action="" enctype="multipart/form-data">
                 <div class="row">
                     {{ csrf_field() }}
                     <div class="input-field col s12">
@@ -49,13 +66,16 @@
                         <label for="icon_prefix2">Isi Post</label>
                     </div>
                     <div class="row">
-                        <label>Image preview:</label>
+                        <span>Image preview <span class="red-text">NOTE : Ukuran file maksimal 1 MB</span>
+                        </span>
                         <img id="output" style="max-width: 100%"/>
                     </div>
                     <div class="file-field input-field">
+
                         <div class="btn">
                             <span>File</span>
-                            <input type="file" class="icon_prefix2" accept="image/*" onchange="loadFile(event)">
+                            <input type="file"
+                                   name='image' accept="image/*" onchange="loadFile(event)">
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text">
