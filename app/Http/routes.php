@@ -16,16 +16,30 @@ Route::get('/', function () {
 });
 
 Route::auth();
-
-Route::get('/home', 'HomeController@index');
-
 //
-Route::get('dokterpeduli', 'MotherController@dokterpeduli');
-Route::post('dokterpeduli', 'MotherController@dokterpeduli');
-Route::get('explore', 'MotherController@explore');
-Route::get('babyzone','MotherController@babyzone');
-Route::get('motherzone','MotherController@motherzone');
-Route::post('motherzone', 'MotherController@motherzone');
-Route::get('pertumbuhanku','MotherController@pertumbuhanku');
-Route::get('pertumbuhanku/jadwal', 'MotherController@jadwal');
-Route::get('ibusiaga','MotherController@ibusiaga');
+Route::group(['middleware' => ['web', 'roles']], function () {
+
+    Route::group(['roles'=>1], function() {
+
+        Route::get('dokterpeduli', 'MotherController@dokterpeduli');
+        Route::post('dokterpeduli', 'MotherController@dokterpeduli');
+        Route::get('explore', 'MotherController@explore');
+        Route::post('explore', 'MotherController@explore');
+        Route::get('babyzone','MotherController@babyzone');
+        Route::get('motherzone','MotherController@motherzone');
+        Route::post('motherzone', 'MotherController@motherzone');
+        Route::get('pertumbuhanku','MotherController@pertumbuhanku');
+        Route::get('pertumbuhanku/jadwal', 'MotherController@jadwal');
+        Route::get('ibusiaga','MotherController@ibusiaga');
+    });
+
+    Route::group(['roles'=>3 ], function () {
+
+        Route::get('answer', 'DoctorController@index');
+        Route::get('question', 'DoctorController@index');
+
+    });
+
+});
+
+

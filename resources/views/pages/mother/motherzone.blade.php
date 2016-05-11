@@ -37,18 +37,39 @@
     {{--the modal form is here--}}
     <div id="addPost" class="modal">
         <div class="modal-content">
-            <h4>Tambahkan Tips dan Trik</h4>
+            <h4>Post Tips dan Trik</h4>
 
             <form class="col s12" method="post" action="">
                 <div class="row">
                     {{ csrf_field() }}
                     <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
                         <textarea id="icon_prefix2"
-                                  style='height:100%'class="materialize-textarea" name="body"></textarea>
+                                  style='max-height:100%' class="materialize-textarea" name="body"></textarea>
+                        <label for="icon_prefix2">Isi Post</label>
                     </div>
+                    <div class="row">
+                        <label>Image preview:</label>
+                        <img id="output" style="max-width: 100%"/>
+                    </div>
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file" class="icon_prefix2" accept="image/*" onchange="loadFile(event)">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                    <script>
+                        var loadFile = function(event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                    </script>
                 </div>
 
-                <div class="row">
+                <div class="modal-footer">
                     <div class="input-field col s12">
                         <a class="modal-action modal-close waves-effect waves-green btn-flat right">Batal</a>
                         <button type="submit" class="modal-action waves-effect waves-green btn right">

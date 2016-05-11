@@ -14,7 +14,7 @@ class CreateTimelinesTable extends Migration
     {
         Schema::create('timelines', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('image_id');
+            $table->string('path_picture');
             $table->timestamps();
         });
     }

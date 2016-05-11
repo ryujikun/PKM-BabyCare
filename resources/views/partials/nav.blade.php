@@ -15,8 +15,7 @@
       </ul>
       @elseif(Auth::user()->isMommy())
       <li><a href="{{ url('dokterpeduli') }}">Dokter Peduli</a></li>
-      <li><a href="{{ url('explore') }}">Explore</a></li>
-      <li><a href="{{ url('babyzone') }}">Zona Bayi</a></li>
+      <li><a href="{{ url('explore') }}">Zona Bayi</a></li>
       <li><a href="{{ url('motherzone') }}">Zona Ibu</a></li>
       <li><a href="{{ url('pertumbuhanku') }}">Pertumbuhanku</a></li>
       <li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>
@@ -27,8 +26,7 @@
 
     <ul id="nav-mobile" class="side-nav">
       <li><a href="{{ url('dokterpeduli') }}">Dokter Peduli</a></li>
-      <li><a href="{{ url('explore') }}">Explore</a></li>
-      <li><a href="{{ url('babyzone') }}">Zona Bayi</a></li>
+      <li><a href="{{ url('explore') }}">Zona Bayi</a></li>
       <li><a href="{{ url('motherzone') }}">Zona Ibu</a></li>
       <li><a href="{{ url('pertumbuhanku') }}">Pertumbuhanku</a></li>
       <li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>

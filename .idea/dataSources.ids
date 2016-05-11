@@ -46,8 +46,8 @@
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="19" parent="2" name="id_picture">
-        <data-type>int(11)</data-type>
+      <column id="19" parent="2" name="path_picture">
+        <data-type>varchar(255)</data-type>
       </column>
       <column id="20" parent="2" name="document_index">
         <data-type>int(11)</data-type>
@@ -183,9 +183,9 @@
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="56" parent="9" name="image_id">
+      <column id="56" parent="9" name="path_picture">
         <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
+        <data-type>varchar(255)</data-type>
       </column>
       <column id="57" parent="9" name="created_at">
         <data-type>timestamp</data-type>
@@ -244,8 +244,8 @@
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="72" parent="11" name="picture_id">
-        <data-type>int(11)</data-type>
+      <column id="72" parent="11" name="path_picture">
+        <data-type>varchar(255)</data-type>
       </column>
       <column id="73" parent="11" name="remember_token">
         <data-type>varchar(100)</data-type>

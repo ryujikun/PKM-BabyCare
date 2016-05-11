@@ -11,28 +11,44 @@
 
     <div class="container">
         <h2 class="header">Explore!</h2>
+        <blockquote>
+            {{--{{ dd($success) }}--}}
+            @if ($errors->has())
+                    @foreach ($errors->all() as $error)
+                    <span class="red-text">
+                        {{ $error }}
+                    </span> <br>
+                    @endforeach
+            @elseif (isset($success))
+                <span class="green-text">
+                    {{ $success }}
+                </span>
+            @endif
+
+        </blockquote>
     </div>
     <div class="fluid-container">
-
         <div class="row">
-            <div class="col s4">
+            @foreach($items as $item)
+            <div class="col s6">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{url('images/baby1.jpg')}}">
+                        <img src="{{url('/images/web/'.$item->path_picture)}}" style="max-height: 100%">
                     </div>
                 </div>
             </div>
-            <div class="col s4">
+            @endforeach
+            <div class="col s6">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{url('images/baby1.jpg')}}">
+                        <img src="{{url('images/baby1.jpg')}}" style="max-height: 100%">
                     </div>
                 </div>
             </div>
-            <div class="col s4">
+            <div class="col s6">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{url('images/baby1.jpg')}}">
+                        <img src="{{url('images/baby2.jpg')}}" style="max-height: 100%">
                     </div>
                 </div>
             </div>
@@ -47,21 +63,36 @@
     {{--the modal form is here--}}
     <div id="addPost" class="modal">
         <div class="modal-content">
-            <h4>Tambahkan Tips dan Trik</h4>
+            <h4>Tambahkan Post</h4>
+            <hr>
+            <p class="red-text">Ukuran file maksimal 1 MB</p>
 
-            <form class="col s12" method="post">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="icon_prefix2"
-                                  style='height:100%'class="materialize-textarea"></textarea>
+            <form class="col s12" method="post" enctype="multipart/form-data" action="">
+                {{ csrf_field() }}
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" accept="image/*" name="image" onchange="loadFile(event)">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
                     </div>
                 </div>
-            </form>
+                <div class="row">
+                    <img id="output" style="max-width: 100%"/>
+                </div>
+                <script>
+                    var loadFile = function(event) {
+                        var output = document.getElementById('output');
+                        output.src = URL.createObjectURL(event.target.files[0]);
+                    };
+                </script>
         </div>
         <div class="modal-footer">
             <a class="modal-action modal-close waves-effect waves-green btn-flat ">Batal</a>
-            <button type="submit" class="modal-action modal-close waves-effect waves-green btn ">Post</button>
+            <button type="submit" class="modal-action waves-effect waves-green btn ">Post</button>
         </div>
+        </form>
     </div>
 @endsection
 
@@ -81,7 +112,6 @@
                 ending_top: '10%',
                 height:'50%'// Ending top style attribute
             });
-        });
         });
 
     </script>
