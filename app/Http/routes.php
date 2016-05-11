@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 //
 Route::get('dokterpeduli', 'MotherController@dokterpeduli');
+Route::post('dokterpeduli', 'MotherController@dokterpeduli');
 Route::get('explore', 'MotherController@explore');
 Route::get('babyzone','MotherController@babyzone');
 Route::get('motherzone','MotherController@motherzone');

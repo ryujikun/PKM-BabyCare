@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Role;
 use App\User;
+use App\UserRole;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -68,6 +70,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'phone' => $data['phone'],
             'address' => $data['address'],
             'birth_date' => $data['birth_date']
 
@@ -76,8 +79,8 @@ class AuthController extends Controller
             'user_id' => $user->id,
             'role_id' => 1
         ];
-        Role::create($role);
-
-        return redirect('login')->with('success','Berhasil Registrasi');
+        UserRole::create($role);
+        return $user;
+//        redirect('login')->with('success','Berhasil Registrasi');
     }
 }

@@ -45,7 +45,7 @@
         </a>
     </div>
     {{--the modal form is here--}}
-    <div id="addPost" class="modal modal-fixed-footer">
+    <div id="addPost" class="modal">
         <div class="modal-content">
             <h4>Tambahkan Tips dan Trik</h4>
 

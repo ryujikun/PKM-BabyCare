@@ -14,16 +14,17 @@
 
         <div class="row">
             <div class="col s12">
+                @foreach($items as $item)
                 <div class="card">
                     <div class="card-content">
-                        <p class="flow-text">Ibu Srikandi S.Kom</p>
-                        <p> Sabtu, 22 Februari 2015</p>
+                        <p class="flow-text">{{ $item->user->name }}</p>
+                        <p> {{ $item->created_at }}</p>
                         <hr>
-                        <img class='materialboxed' width='100%' src="{{url('images/baby1.jpg')}}" style="max-height:10%;">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                        {{--<img class='materialboxed' width='100%' src="{{url('images/baby1.jpg')}}" style="max-height:10%;">--}}
+                        <p>{{ $item->body }}</p>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
 
@@ -34,24 +35,30 @@
         </a>
     </div>
     {{--the modal form is here--}}
-    <div id="addPost" class="modal modal-fixed-footer">
+    <div id="addPost" class="modal">
         <div class="modal-content">
             <h4>Tambahkan Tips dan Trik</h4>
 
-            <form class="col s12" method="post">
+            <form class="col s12" method="post" action="">
                 <div class="row">
+                    {{ csrf_field() }}
                     <div class="input-field col s12">
                         <textarea id="icon_prefix2"
-                                  style='height:100%'class="materialize-textarea"></textarea>
+                                  style='height:100%'class="materialize-textarea" name="body"></textarea>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a class="modal-action modal-close waves-effect waves-green btn-flat right">Batal</a>
+                        <button type="submit" class="modal-action waves-effect waves-green btn right">
+                            Post
+                        </button>
+                    </div>
+                </div>
+        </div>
             </form>
         </div>
-        <div class="modal-footer">
-            <a class="modal-action modal-close waves-effect waves-green btn-flat ">Batal</a>
-            <button type="submit" class="modal-action modal-close waves-effect waves-green btn ">Post</button>
-        </div>
-    </div>
 
 
 @endsection
