@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89929674-422c-4cba-a299-7d225989070a" name="Default" comment="Added migration &amp; seeds">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MotherController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MotherController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/mother/pertumbuhanku.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/mother/pertumbuhanku.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/mother/dokterpeduli.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/mother/dokterpeduli.blade.php" />
     </list>
     <ignored path="PKM-BabyCare.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -147,11 +146,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pertumbuhanku.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pertumbuhanku.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/mother/pertumbuhanku.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.0337079">
-              <caret line="166" column="56" selection-start-line="166" selection-start-column="56" selection-end-line="166" selection-end-column="56" />
+            <state vertical-scroll-proportion="-4.6666665">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
                 <element signature="e#168#6887#0#HTML" expanded="false" />
                 <element signature="e#7144#7182#0#HTML" expanded="true" />
@@ -175,11 +174,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dokterpeduli.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dokterpeduli.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/mother/dokterpeduli.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-37.333332">
-              <caret line="56" column="10" selection-start-line="11" selection-start-column="4" selection-end-line="56" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.5449438">
+              <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -236,7 +235,6 @@
         <option value="$PROJECT_DIR$/resources/views/includes/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/nav.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/mother/dokterpeduli.blade.php" />
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c6123fa0-2a67-4ddf-bc74-d61610b00917/console.sql" />
         <option value="$PROJECT_DIR$/database/migrations/2016_04_26_185830_create_posts_table.php" />
@@ -251,6 +249,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_04_26_185826_create_babies_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MotherController.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/mother/pertumbuhanku.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/mother/dokterpeduli.blade.php" />
       </list>
     </option>
   </component>
@@ -1097,22 +1096,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/mother/dokterpeduli.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-37.333332">
-          <caret line="56" column="10" selection-start-line="11" selection-start-column="4" selection-end-line="56" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/mother/pertumbuhanku.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.0337079">
-          <caret line="166" column="56" selection-start-line="166" selection-start-column="56" selection-end-line="166" selection-end-column="56" />
+        <state vertical-scroll-proportion="-4.6666665">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="e#168#6887#0#HTML" expanded="false" />
             <element signature="e#7144#7182#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/mother/dokterpeduli.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5449438">
+          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
