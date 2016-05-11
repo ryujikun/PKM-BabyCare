@@ -67,7 +67,6 @@ class MotherController extends Controller
                 ->withAlert('Anda belum memasukkan data bayi anda.');
         }else{
             $data['item']  = Baby::find(Auth::user()->baby_id);
-            dd($data['item']);
             return view($this->viewPrefix.'pertumbuhanku', $data);
 
         }

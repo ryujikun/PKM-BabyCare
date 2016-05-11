@@ -118,58 +118,73 @@
         </div>
 
     @else
-        <div class="section no-pad-bot" id="index-banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 class="header">Pertumbuhanku</h2>
-                        <br>
-                        <div class="col s12">
-                            <div class="card">
-                                <div class="card-content">
-                                    <h4 class="header ">Data Bayi</h4>
-
-                                    <div class="s6 l12">
-                                        <table class="bordered">
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <strong>
-                                                        Tanggal lahir
-                                                    </strong>
-                                                </td>
-                                                <td>{{ $item->birth_date }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>
-                                                        Tinggi / Berat Badan
-                                                    </strong>
-                                                </td>
-                                                <td>{{ $item->height }} cm / {{ $item->weight }} kilogram</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>
-                                                        Kondisi
-                                                    </strong>
-                                                </td>
-                                                <td>{{ $item->condition }}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
+        <div class="parallax-container " style="max-height:15em;">
+            <div class="parallax" ><img src="{{ url('images/playground1.jpg') }}"></div>
+            <div class="center " >
+                <img class="s2 circle responsive-img" style="margin-top:1em;max-height:12em" src="{{ url('images/web/'.$item->path_picture) }}">
             </div>
         </div>
-    @endif
+        <div class="section white">
+            <div class="row container">
+                <h3 class="header">{{ $item->name }}</h3>
+                <hr>
+                <h4 class="header ">Data Bayi</h4>
+                <div class="s12 l6">
+
+                    <table class="bordered">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Jenis Kelamin
+                                </strong>
+                            </td>
+                            <td>
+                                {{--todo--}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Usia
+                                </strong>
+                            </td>
+                            <td>
+                                {{--todo--}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Tanggal lahir
+                                </strong>
+                            </td>
+                            <td>{{ $item->birth_date }}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Tinggi / Berat Badan
+                                </strong>
+                            </td>
+                            <td>{{ $item->height }} cm / {{ $item->weight }} kilogram</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Kondisi
+                                </strong>
+                            </td>
+                            <td>{{ $item->condition }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+            </div>
+                <br>
+                <h4 class="header ">Jadwal Imunisasi</h4>
+                <div class="s12 l6"></div>
+        </div>
+            @endif
 
 
 
