@@ -33,7 +33,7 @@
             <div class="col s6">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{url('/images/web/'.$item->path_picture)}}" style="max-height: 100%">
+                        <img class="materialboxed" src="{{url('/images/web/'.$item->path_picture)}}">
                     </div>
                 </div>
             </div>
@@ -41,14 +41,14 @@
             <div class="col s6">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{url('images/baby1.jpg')}}" style="max-height: 100%">
+                        <img  class="materialboxed" src="{{url('images/baby1.jpg')}}" style="max-height: 100%">
                     </div>
                 </div>
             </div>
             <div class="col s6">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{url('images/baby2.jpg')}}" style="max-height: 100%">
+                        <img class="materialboxed" src="{{url('images/baby2.jpg')}}" style="max-height: 100%">
                     </div>
                 </div>
             </div>

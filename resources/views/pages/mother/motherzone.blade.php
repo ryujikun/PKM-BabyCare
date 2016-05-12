@@ -36,7 +36,7 @@
                         <p> {{ $item->created_at }}</p>
                         <hr>
                         @if($item->path_picture)
-                            <img class='materialboxed' width='100%' src="{{url('images/web/'.$item->path_picture)}}" style="max-height:10%;">
+                            <img class='materialboxed' width='100%' src="{{url('images/web/'.$item->path_picture)}}">
                         @endif
                         <p>{{ $item->body }}</p>
                     </div>

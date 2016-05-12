@@ -1,5 +1,5 @@
 <nav class="light-blue lighten-1" role="navigation">
-  <div class="nav-wrapper fluid-container">
+  <div class="nav-wrapper container">
     <a id="logo-container" href="#" class="brand-logo">Logo</a>
     <ul class="right hide-on-med-and-down">
 
@@ -20,7 +20,6 @@
       <li><a href="{{ url('pertumbuhanku') }}">Pertumbuhanku</a></li>
       <li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>
       <li><a href="{{ url('logout') }}">
-          <strong>{{ Auth::user()->id }}, {{  Auth::user()->name }}</strong>
           Logout</a></li>
     </ul>
 
@@ -31,14 +30,12 @@
       <li><a href="{{ url('pertumbuhanku') }}">Pertumbuhanku</a></li>
       <li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>
       <li><a href="{{ url('logout') }}">
-          <strong>{{ Auth::user()->id }}, {{  Auth::user()->name }}</strong>
           Logout</a></li>
     </ul>
       @elseif(Auth::user()->isDoctor())
       <li><a href="{{ url('questions/answer') }}">Jawab Pertanyaan</a></li>
       <li><a href="{{ url('questions') }}">Daftar Pertanyaan</a></li>
       <li><a href="{{ url('logout') }}">
-          <strong>{{ Auth::user()->id }}, {{  Auth::user()->name }}</strong>
           Logout</a></li>
       </ul>
 
@@ -46,20 +43,17 @@
       <li><a href="{{ url('questions/answer') }}">Jawab Pertanyaan</a></li>
       <li><a href="{{ url('questions') }}">Daftar Pertanyaan</a></li>
         <li><a href="{{ url('logout') }}">
-            <strong>{{ Auth::user()->id }}, {{  Auth::user()->name }}</strong>
             Logout</a></li>
       </ul>
     @elseif(Auth::user()->isKader())
       <li><a href="{{ url('babydata') }}">Masukkan Data Bayi</a></li>
       <li><a href="{{ url('logout') }}">
-          <strong>{{ Auth::user()->id }}, {{  Auth::user()->name }}</strong>
           Logout</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
       <li><a href="{{ url('babydata') }}">Masukkan Data Bayi</a></li>
       <li><a href="{{ url('logout') }}">
-          <strong>{{ Auth::user()->id }}, {{  Auth::user()->name }}</strong>
           Logout</a></li>
       </ul>
     @endif
