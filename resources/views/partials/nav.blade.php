@@ -14,6 +14,7 @@
           <li><a href="{{ url('/register') }}">Register</a></li>
       </ul>
       @elseif(Auth::user()->isMommy())
+      <li><a href="{{ url('/mother') }}">Home</a></li>
       <li><a href="{{ url('dokterpeduli') }}">Dokter Peduli</a></li>
       <li><a href="{{ url('explore') }}">Zona Bayi</a></li>
       <li><a href="{{ url('motherzone') }}">Zona Ibu</a></li>
@@ -24,6 +25,7 @@
     </ul>
 
     <ul id="nav-mobile" class="side-nav">
+      <li><a href="{{ url('/mother') }}">Home</a></li>
       <li><a href="{{ url('dokterpeduli') }}">Dokter Peduli</a></li>
       <li><a href="{{ url('explore') }}">Zona Bayi</a></li>
       <li><a href="{{ url('motherzone') }}">Zona Ibu</a></li>
@@ -33,6 +35,7 @@
           Logout</a></li>
     </ul>
       @elseif(Auth::user()->isDoctor())
+      <li><a href="{{ url('/doctor') }}">Home</a></li>
       <li><a href="{{ url('questions/answer') }}">Jawab Pertanyaan</a></li>
       <li><a href="{{ url('questions') }}">Daftar Pertanyaan</a></li>
       <li><a href="{{ url('logout') }}">
@@ -40,18 +43,21 @@
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
+        <li><a href="{{ url('/doctor') }}">Home</a></li>
       <li><a href="{{ url('questions/answer') }}">Jawab Pertanyaan</a></li>
       <li><a href="{{ url('questions') }}">Daftar Pertanyaan</a></li>
         <li><a href="{{ url('logout') }}">
             Logout</a></li>
       </ul>
     @elseif(Auth::user()->isKader())
+      <li><a href="{{ url('/kader') }}">Home</a></li>
       <li><a href="{{ url('babydata') }}">Masukkan Data Bayi</a></li>
       <li><a href="{{ url('logout') }}">
           Logout</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
+        <li><a href="{{ url('/kader') }}">Home</a></li>
       <li><a href="{{ url('babydata') }}">Masukkan Data Bayi</a></li>
       <li><a href="{{ url('logout') }}">
           Logout</a></li>

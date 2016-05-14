@@ -6,6 +6,7 @@ use App\Baby;
 use App\Post;
 use App\Question;
 use App\Timeline;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -23,6 +24,12 @@ class MotherController extends Controller
     }
 
     public $viewPrefix = 'pages.mother.';
+
+    public function index(Request $request){
+        $data['item'] = $request->user();
+        return view('pages.dashboard', $data);
+    }
+
     public function dokterpeduli(Request $request){
         if($request->isMethod('get')){
             $data['items'] = Question::where('ask_id', Auth::user()->id)->orderBy('created_at','desc')->paginate(10);
@@ -117,15 +124,55 @@ class MotherController extends Controller
     }
 
     public function pertumbuhanku(Request $request){
-        $data['alert'] = null;
-        if(Auth::user()->baby_id==null){
-            return view($this->viewPrefix.'pertumbuhanku')
-                ->withAlert('Anda belum memasukkan data bayi anda.');
-        }else{
-            $data['item']  = Baby::find($request->user()->baby_id);
-            return view($this->viewPrefix.'pertumbuhanku', $data);
+        if($request->isMethod('get')){
+            $data['alert'] = null;
+            if(Auth::user()->baby_id==null){
+                return view($this->viewPrefix.'pertumbuhanku')
+                    ->withAlert('Anda belum memasukkan data bayi anda.');
+            }else{
+                $data['item']  = Baby::find($request->user()->baby_id);
+                return view($this->viewPrefix.'pertumbuhanku', $data);
 
+            }
         }
+        elseif($request->isMethod('post'))
+        {
+            $data = $request->except('image');
+            $data['mother_id'] = $request->user()->id;
+            $data['birth_date'] = Carbon::parse(date('Y-m-d', strtotime($_POST["birth_date"])));
+            $postItem = Baby::create($data);
+            $request->user()->baby_id = $postItem->id;
+            $request->user()->save();
+            if($postItem){
+                if($request->only('image')){
+                    $file = $request->file('image');
+                    $validator = $this->imageValidator($request->only('image'));
+
+                    if ($validator->fails()) {
+                        $this->throwValidationException($request, $validator);
+                    }
+
+                    $path_picture = 'baby-' . $postItem->id . '.'. $file->getClientOriginalExtension();
+
+                    if ($file->move(base_path() . '/public/images/web/' , $path_picture))
+                    {
+                        $postItem->path_picture = $path_picture;
+                        $postItem->save();
+                        return redirect('pertumbuhanku')
+                            ->with('success', 'Gambar telah sukses diupload!');
+                    }
+                    else
+                    {
+                        return redirect('pertumbuhanku')->withErrors('Maaf ada kesalahan, silahkan coba lagi');
+                    }
+                }
+
+                redirect('pertumbuhanku');
+            }
+            else
+                return redirect('pertumbuhanku')->with('danger','Maaf, postingan anda tidak dapat dipost, silahkan coba lagi');
+        }
+
 
     }
 

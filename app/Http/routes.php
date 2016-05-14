@@ -11,24 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.templates');
-});
+Route::get('/', 'HomeController@index');
 
 Route::auth();
 //
 Route::group(['middleware' => ['web', 'roles']], function () {
 
-    Route::group(['roles'=>1], function() {
+    Route::group(['roles' => 1], function() {
 
+        Route::get('/mother', 'MotherController@index');
         Route::get('dokterpeduli', 'MotherController@dokterpeduli');
         Route::post('dokterpeduli', 'MotherController@dokterpeduli');
         Route::get('explore', 'MotherController@explore');
         Route::post('explore', 'MotherController@explore');
-        Route::get('babyzone','MotherController@babyzone');
         Route::get('motherzone','MotherController@motherzone');
         Route::post('motherzone', 'MotherController@motherzone');
         Route::get('pertumbuhanku','MotherController@pertumbuhanku');
+        Route::post('pertumbuhanku','MotherController@pertumbuhanku');
         Route::get('pertumbuhanku/jadwal', 'MotherController@jadwal');
         Route::get('ibusiaga','MotherController@ibusiaga');
     });

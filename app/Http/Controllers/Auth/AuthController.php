@@ -72,14 +72,14 @@ class AuthController extends Controller
             'phone' => $data['phone'],
             'address' => $data['address'],
             'birth_date' => $data['birth_date']
-
         ]);
+
         $role = [
             'user_id' => $user->id,
             'role_id' => 1
         ];
         UserRole::create($role);
         return $user;
-//        redirect('login')->with('success','Berhasil Registrasi');
+
     }
 }

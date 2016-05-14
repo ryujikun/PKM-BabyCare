@@ -29,7 +29,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="date" name='birth_date' class="datepicker">
+                            <input type="date" name='birth_date' id="datepicker">
                             <label for="birth_date">Tanggal Lahir</label>
                             @if ($errors->has('birth_date'))
                                 <span class="red-text text-darken-1">
@@ -93,6 +93,25 @@
                             @endif
                         </div>
                     </div>
+                    <div class='row'>
+                        <div class="input-field col s12">
+                            <p class="flow-text">Foto Profil</p>
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>Foto Profil</span>
+                                    <input name="image" accept="image/*" type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Unggah Foto Profil anda disini">
+                                </div>
+                                @if ($errors->has('image'))
+                                    <span class="red-text text-darken-1">
+                                        <strong>{{ $errors->first('image') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                     <button class="btn btn-large waves-effect waves-light right" type="submit" name="action">Daftar Sekarang
                         <i class="material-icons right">send</i>
                     </button>
@@ -110,9 +129,10 @@
         $('#address').val('New Text');
         $('#address').trigger('autoresize');
 
-        $('.datepicker').pickadate({
+        $('#datepicker').pickadate({
             selectYears:true,
-            selectYears: 60
+            selectYears: 60,
+            formatSubmit: 'yyyy-mm-dd'
         });
 
     </script>

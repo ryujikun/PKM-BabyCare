@@ -22,7 +22,7 @@
                                 <div class="card-content">
                                     <h4 class="header ">Data Bayi</h4>
 
-                                    <form role="form" method="POST" action="">
+                                    <form role="form" method="POST" action="" enctype="multipart/form-data" >
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="input-field col s12">
@@ -58,7 +58,7 @@
                                                 @endif
                                             </div>
                                             <div class="input-field col s6">
-                                                <input placeholder='dalam Kilogram' id="weight" name='weight' type='number' class="validate">
+                                                <input placeholder='dalam Kilogram' id="weight" name='weight' type='number' step="0.01" class="validate">
                                                 <label for="weight">Berat</label>
                                                 @if ($errors->has('weight'))
                                                     <span class="red-text text-darken-1">
@@ -89,7 +89,7 @@
                                                 <div class="file-field input-field">
                                                     <div class="btn">
                                                         <span>File</span>
-                                                        <input type="file" name="picture">
+                                                        <input accept="image/*" type='file' name="image">
                                                     </div>
                                                     <div class="file-path-wrapper">
                                                         <input class="file-path validate" type="text" placeholder="Unggah foto bayi anda disini">
@@ -184,6 +184,8 @@
                 <h4 class="header ">Jadwal Imunisasi</h4>
                 <div class="s12 l6"></div>
         </div>
+        </div>
+
             @endif
 
 
@@ -195,17 +197,14 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-            $('.modal-trigger').leanModal({
-
-                dismissible: true, // Modal can be dismissed by clicking outside of the modal
-                opacity: .5, // Opacity of modal background
-                in_duration: 300, // Transition in duration
-                out_duration: 200, // Transition out duration
-                starting_top: '4%', // Starting top style attribute
-                ending_top: '10%',
-                height:'50%'// Ending top style attribute
+            $('.datepicker').pickadate({
+                min: new Date(1990,3,20),
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15 // Creates a dropdown of 15 years to control year
+                formatSubmit: 'yyyy-mm-dd',
+                hiddenName: true
             });
+
         });
 
     </script>

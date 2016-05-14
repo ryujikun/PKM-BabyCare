@@ -71,7 +71,7 @@
                 {{ csrf_field() }}
                 <div class="file-field input-field">
                     <div class="btn">
-                        <span>File</span>
+                        <span>Foto Bayi</span>
                         <input type="file" accept="image/*" name="image" onchange="loadFile(event)">
                     </div>
                     <div class="file-path-wrapper">
@@ -112,6 +112,8 @@
                 ending_top: '10%',
                 height:'50%'// Ending top style attribute
             });
+
+
         });
 
     </script>

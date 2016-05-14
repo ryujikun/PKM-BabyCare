@@ -12,7 +12,7 @@
     <div class="parallax-container " style="max-height:15em;">
         <div class="parallax" ><img src="{{ url('images/playground1.jpg') }}"></div>
         <div class="center " >
-            <img class="s2 circle responsive-img" style="margin-top:1em;max-height:9em" src="{{ url('images/doctor.jpg') }}">
+            <img class="s2 circle responsive-img" style="margin-top:1em;max-height:9em" src="{{ url('images/doctor.png') }}">
         </div>
     </div>
     <div class="section white">
