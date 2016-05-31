@@ -43,7 +43,7 @@
   @include('includes.footer')
   @include('includes.scripts')
 
-  @yield('')
+  @yield('custom-foot')
 
 
 

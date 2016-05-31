@@ -18,15 +18,8 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/mother');
+            return redirect('/');
 
-
-//            if($request->user()->isMommy())
-//                return redirect('/mother');
-//            elseif($request->user()->isKader())
-//                return redirect('/kader');
-//            elseif($request->user()->isDoctor())
-//                return redirect('/doctor');
         }
 
         return $next($request);

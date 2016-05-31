@@ -26,6 +26,7 @@ class MotherController extends Controller
     public $viewPrefix = 'pages.mother.';
 
     public function index(Request $request){
+        $data['']
         $data['item'] = $request->user();
         return view('pages.dashboard', $data);
     }

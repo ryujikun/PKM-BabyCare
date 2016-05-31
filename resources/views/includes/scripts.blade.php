@@ -7,4 +7,3 @@
     <script type="text/javascript" src="{{ url('assets/js/date_picker/picker.js') }}"></script>
     <script type="text/javascript" src="{{ url('assets/js/jquery.easing.1.3.js') }}"></script>
     <script type="text/javascript" src="{{ url('assets/js/init.js') }}"></script>
-

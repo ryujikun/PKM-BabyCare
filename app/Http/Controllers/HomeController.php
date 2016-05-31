@@ -11,9 +11,9 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::check()){
-            if(Auth::user()->isMommy()) redirect('/mother');
-            elseif(Auth::user()->isDoctor()) redirect('/doctor');
-            elseif(Auth::user()->isKader()) redirect('/kader');
+            if(Auth::user()->isMommy()) return redirect('/motherzone');
+            elseif(Auth::user()->isDoctor()) return redirect('/doctor');
+            elseif(Auth::user()->isKader()) return redirect('/kader');
         }
         else return view('pages.landing');
     }
