@@ -10,7 +10,6 @@
 
 
     <div class="container">
-        <h2 class="header">Zona Ibu</h2>
         <blockquote>
             {{--{{ dd($success) }}--}}
             @if ($errors->has())

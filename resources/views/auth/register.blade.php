@@ -1,4 +1,4 @@
-@extends('layouts.templates')
+@extends('layouts.authtemplate')
 
 @section('page-title')
     Register Babycare

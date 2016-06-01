@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class MotherController extends Controller
@@ -26,13 +25,14 @@ class MotherController extends Controller
     public $viewPrefix = 'pages.mother.';
 
     public function index(Request $request){
-        $data['']
+        $data['content_title'] = 'Profil Anda';
         $data['item'] = $request->user();
         return view('pages.dashboard', $data);
     }
 
     public function dokterpeduli(Request $request){
         if($request->isMethod('get')){
+            $data['content_title'] = 'Dokter Peduli';
             $data['items'] = Question::where('ask_id', Auth::user()->id)->orderBy('created_at','desc')->paginate(10);
             return view($this->viewPrefix.'dokterpeduli', $data);
         }
@@ -50,6 +50,7 @@ class MotherController extends Controller
 
     public function explore(Request $request)
     {
+        $data['content_title'] = 'Explore';
 
         $data['items'] = Timeline::orderBy('created_at', 'desc')->paginate(10);
 
@@ -84,6 +85,7 @@ class MotherController extends Controller
 
     public function motherzone(Request $request){
         if($request->isMethod('get')){
+            $data['content_title'] = 'Zona Ibu';
             $data['items'] = Post::orderBy('created_at','desc')->paginate(10);
             return view($this->viewPrefix.'motherzone', $data);
 
@@ -126,6 +128,7 @@ class MotherController extends Controller
 
     public function pertumbuhanku(Request $request){
         if($request->isMethod('get')){
+            $data['content_title'] = 'Pertumbuhanku';
             $data['alert'] = null;
             if(Auth::user()->baby_id==null){
                 return view($this->viewPrefix.'pertumbuhanku')
@@ -178,11 +181,13 @@ class MotherController extends Controller
     }
 
     public function jadwal(){
+        $data['content_title'] = 'Jadwal';
         return view($this->viewPrefix.'jadwal');
 
     }
 
     public function ibusiaga(){
+        $data['content_title'] = 'Ibu Siaga';
         return view($this->viewPrefix.'ibusiaga');
 
     }
