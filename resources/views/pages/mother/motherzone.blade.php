@@ -9,7 +9,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="container-fluid">
         <blockquote>
             {{--{{ dd($success) }}--}}
             @if ($errors->has())

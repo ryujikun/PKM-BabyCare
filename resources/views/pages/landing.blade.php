@@ -25,12 +25,12 @@
 <body>
         <!-- Page content -->
 <div class="container">
-    <div class="row" style="bottom:0!important; margin-top:35rem; background:none">
-        <a class="col s12 l5 btn btn-large left" href="{{ url('register') }}">
-            <strong>Register</strong>
+    <div class="row" style="bottom:0!important; margin-top:38rem; background:none">
+        <a class="col s5 l5 btn btn-large left white blue-text" href="{{ url('register') }}">
+            <strong>Daftar</strong>
         </a>
 
-        <a   class="col s12 l5 btn btn-large right" href="{{ url('login') }}">
+        <a   class="col s5 l5 btn btn-large right white blue-text" href="{{ url('login') }}">
             <strong>Login</strong>
         </a>
 

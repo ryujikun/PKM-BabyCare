@@ -38,8 +38,11 @@ class User extends Authenticatable
         return $this->role->first()->id == 3;
     }
 
-    public function question(){
-        return $this->hasMany('App\Question');
+    public function penanya(){
+        return $this->hasMany('App\Question','ask_id');
+    }
+    public function penjawab(){
+        return $this->hasMany('App\Question','answer_id');
     }
 
     public function baby(){

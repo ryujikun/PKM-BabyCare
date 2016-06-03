@@ -12,7 +12,7 @@ class HomeController extends Controller
     {
         if(Auth::check()){
             if(Auth::user()->isMommy()) return redirect('/motherzone');
-            elseif(Auth::user()->isDoctor()) return redirect('/doctor');
+            elseif(Auth::user()->isDoctor()) return redirect('/question');
             elseif(Auth::user()->isKader()) return redirect('/kader');
         }
         else return view('pages.landing');

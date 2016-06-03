@@ -2,11 +2,11 @@
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" class="brand-logo">
-           @if($content_title)
-              {{ $content_title }}
-           @endif
+             {{--@if($content_title)--}}
+               {{--{{ $content_title }}--}}
+             {{--@endif--}}
 
-
+            Logo
       </a>
       <ul class="right hide-on-med-and-down">
 

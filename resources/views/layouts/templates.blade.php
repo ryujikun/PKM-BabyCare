@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 
+    @include('includes.scripts')
     @include('includes.header')
 
 </head>
@@ -15,7 +16,6 @@
 
   <!-- Footer -->
   @include('includes.footer')
-  @include('includes.scripts')
 
   @yield('custom_foot')
   </body>

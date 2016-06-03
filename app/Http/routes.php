@@ -33,8 +33,8 @@ Route::group(['middleware' => ['web', 'roles']], function () {
     });
 
     Route::group(['roles'=>3 ], function () {
-
         Route::get('answer', 'DoctorController@index');
+        Route::get('answer/{id}', 'DoctorController@index');
         Route::get('question', 'DoctorController@index');
 
     });

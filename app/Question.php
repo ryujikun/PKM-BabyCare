@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\Paginator;
 
 class Question extends Model
 {
@@ -14,7 +15,7 @@ class Question extends Model
     public function penanya(){
         return $this->hasOne('App\User','ask_id');
     }
-    public function penjawab(){
-        return $this->hasOne('App\User','answer_id');
-    }
+//    public function penjawab(){
+//        return $this->hasOne('App\User','answer_id');
+//    }
 }

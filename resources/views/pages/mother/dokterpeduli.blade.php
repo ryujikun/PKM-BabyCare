@@ -15,15 +15,10 @@
             <img class="s2 circle responsive-img" style="margin-top:1em;max-height:9em" src="{{ url('images/doctor.jpg') }}">
         </div>
     </div>
+    <br>
     <div class="section white">
-        <div class="row container">
-            <h2 class="header">Dokter Peduli</h2>
-            <p class=" ">
-                Anda bisa menanyakan pertanyaan disini, dan dokter yang tersedia akan menjawabnya untuk anda.
-            </p>
-        </div>
-        <div class="container">
 
+        <div class="container">
             <div class="row">
                 @foreach($items as $item)
                     <h5 class="flow-text">Ask</h5>
@@ -43,7 +38,7 @@
                     <br>
                 @endforeach
                 <p class="flow-text">Tanyakan pada Dokter</p>
-                <form class="col s12" method="post" action="">
+                <form class="col s12" method="post" action="" id="tanyaDokter">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="input-field col s12">
@@ -63,6 +58,11 @@
         </div>
     </div>
 
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="#tanyaDokter">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
 
 @endsection
 
