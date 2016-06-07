@@ -33,12 +33,12 @@ class MotherController extends Controller
     public function dokterpeduli(Request $request){
         if($request->isMethod('get')){
             $data['content_title'] = 'Dokter Peduli';
-            $data['items'] = Question::where('ask_id', Auth::user()->id)->orderBy('created_at','desc')->paginate(10);
+            $data['items'] = Question::where('user_id', Auth::user()->id)->orderBy('created_at','desc')->paginate(10);
             return view($this->viewPrefix.'dokterpeduli', $data);
         }
         elseif($request->isMethod('post')){
             $question = $request->all();
-            $question['ask_id'] = Auth::user()->id;
+            $question['user_id'] = Auth::user()->id;
             if(Question::create($question)){
                 return redirect('dokterpeduli')->with('success','Sukses memposting pertanyaan anda.');
             }
@@ -91,6 +91,7 @@ class MotherController extends Controller
 
         }
         elseif($request->isMethod('post')){
+            
             $data = $request->only('body');
             $data['user_id'] = $request->user()->id;
             $postItem = Post::create($data);

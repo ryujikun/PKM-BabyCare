@@ -9,13 +9,13 @@ class Question extends Model
 {
     protected $table = 'questions';
     protected $fillable = [
-        'ask_id','answer_id','question','answer'
+        'user_id','answer_id','question'
     ];
 
-    public function penanya(){
-        return $this->hasOne('App\User','ask_id');
+    public function user(){
+        return $this->belongsTo('App\User','user_id');
     }
-//    public function penjawab(){
-//        return $this->hasOne('App\User','answer_id');
-//    }
+    public function answer(){
+        return $this->hasOne('App\Answer','answer_id');
+    }
 }

@@ -27,11 +27,11 @@
                             Anda : {{ $item->question }}
                         </li>
                     </ul>
-                    @if($item->answer!=NULL)
+                    @if($item->answer_id)
                         <h4 class=" flow-text right-align">Answer</h4>
                         <ul class="collection">
                             <li class="collection-item green lighten-5">
-                                {{ $item->answer }}
+                                {{ $item->answer->answer }}
                             </li>
                         </ul>
                     @endif

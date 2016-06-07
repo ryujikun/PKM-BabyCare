@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(QuestionSeeder::class);
         $this->call(UserRoleSeeder::class);
+        $this->call(AnswerSeeder::class);
 //        $this->call(TimelineSeeder::class);
         $this->call(RoleSeeder::class);
 
