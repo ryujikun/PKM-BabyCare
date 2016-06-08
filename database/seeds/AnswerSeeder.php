@@ -18,7 +18,7 @@ class AnswerSeeder extends Seeder
         for($x=1;$x<5;$x++){
             DB::table('answers')->insert([
                 'user_id' => $faker->randomElement([1, 13,14,15]),
-                'answer' => $faker->sentences($nb=9, $asText = true),
+                'body' => $faker->sentences($nb=9, $asText = true),
                 'created_at' => $faker->dateTimeThisYear($max = '-4 months')
             ]);
         }

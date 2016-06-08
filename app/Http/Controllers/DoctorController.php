@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Question;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -38,10 +39,12 @@ class DoctorController extends Controller
         }
         elseif($request->isMethod('post')){
             $data = $request->all();
-            $data['user_id'] = Auth::user()->id;
-
-            if(Answer::create($data)){
-                return redirect('/');
+            $data['user_id'] = $request->user()->id;
+            if($answer = Answer::create($data)){
+                $question = Question::find($id);
+                $question->answer_id = $answer->id;
+                $question->save();
+                return redirect()->back();
             }
             else redirect()->back();
 

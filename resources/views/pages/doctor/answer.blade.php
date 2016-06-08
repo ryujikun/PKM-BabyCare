@@ -31,21 +31,21 @@
                     </li>
                 </ul>
 
-                <form class="col s12" role="form" method="POST" action="{{ url('/register') }}">
+                <form class="col s12" role="form" method="POST" action="">
                     {{ csrf_field() }}
 
                     <div class="input-field col s12">
                         <label for="answer">Jawaban </label>
-                        <textarea id="answer" name='answer' class="materialize-textarea"></textarea>
+                        <textarea id="answer" name='body' class="materialize-textarea"></textarea>
                         @if ($errors->has('answer'))
                             <span class="red-text text-darken-1">
                                         <strong>{{ $errors->first('answer') }}</strong>
                                     </span>
                         @endif
                     </div>
-                    <button class="btn btn-large waves-effect waves-light right" type="submit" name="action">
+                    <button class="btn btn-large waves-effect waves-light blue right" type="submit" name="action">
                         Jawab
-                        <i class="material-icons right">send</i>
+                        <i class="material-icons right ">send</i>
                     </button>
                 </form>
             </div>

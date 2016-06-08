@@ -42,7 +42,7 @@
               Logout</a></li>
         </ul>
       @elseif(Auth::user()->isDoctor())
-        <li><a href="{{ url('/doctor') }}">Home</a></li>
+        <li><a href="{{ url('/') }}">Home</a></li>
         <li><a href="{{ url('questions/answer') }}">Jawab Pertanyaan</a></li>
         <li><a href="{{ url('questions') }}">Daftar Pertanyaan</a></li>
         <li><a href="{{ url('logout') }}">
@@ -50,7 +50,7 @@
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-          <li><a href="{{ url('/doctor') }}">Home</a></li>
+          <li><a href="{{ url('/') }}">Home</a></li>
           <li><a href="{{ url('questions/answer') }}">Jawab Pertanyaan</a></li>
           <li><a href="{{ url('questions') }}">Daftar Pertanyaan</a></li>
           <li><a href="{{ url('logout') }}">

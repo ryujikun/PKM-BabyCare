@@ -9,7 +9,7 @@ class Answer extends Model
     protected $table = 'answers';
 
     protected $fillable = [
-        'user_id','question_id','answer'
+        'user_id','question_id','body'
     ];
 
     public function user()
@@ -17,8 +17,8 @@ class Answer extends Model
         return $this->belongsTo('App\User','user_id');
     }
 
-    public function question()
-    {
-        return $this->belongsTo('App\Question','question_id');
+    public function question(){
+        return $this->hasOne('App\Question','question_id');
     }
+
 }

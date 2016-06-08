@@ -11,11 +11,11 @@ class Question extends Model
     protected $fillable = [
         'user_id','answer_id','question'
     ];
-
+    
     public function user(){
         return $this->belongsTo('App\User','user_id');
     }
     public function answer(){
-        return $this->hasOne('App\Answer','answer_id');
+        return $this->belongsTo('App\Answer','answer_id');
     }
 }
