@@ -13,15 +13,21 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
+
+    private $requiredRoles;
     public function handle($request, Closure $next)
     {
-        $roles = $this->getRequiredRole($request->route());
-        if($roles ==  $request->user()->role->first()->id ){
-            return $next($request);
+        $this->requiredRoles = $this->getRequiredRole($request->route());
+        $userRole =  $request->user()->role->first()->id;
+        if( $userRole && $this->requiredRoles ){
+            if( $this->isAuthorized( $userRole ))
+            {
+                return $next($request);
+            }
         }
-        else{
-            return redirect('/');
-        }
+
+        return redirect('/');
+
     }
 
     private function getRequiredRole($route){
@@ -29,4 +35,9 @@ class CheckRole
         return isset($actions['roles']) ? $actions['roles'] : null;
     }
 
+    private function isAuthorized($role){
+        if(is_array($this->requiredRoles))
+            return in_array($role, $this->requiredRoles);
+        else return $this->requiredRoles == $role;
+    }
 }

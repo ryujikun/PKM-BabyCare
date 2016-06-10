@@ -1,7 +1,7 @@
 <div class="navbar-fixed">
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" class="brand-logo">
+      <a id="logo-container" class="brand-logo" href="{{ url('/') }}">
             {{--@yield('nav-title')--}}
             BabyCare
       </a>
@@ -54,15 +54,15 @@
               Logout</a></li>
         </ul>
       @elseif(Auth::user()->isKader())
-        <li><a href="{{ url('/kader') }}">Home</a></li>
-        <li><a href="{{ url('babydata') }}">Masukkan Data Bayi</a></li>
+        <li><a href="{{ url('/kader') }}">Data Imunisasi</a></li>
+        <li><a href="{{ url('babydata') }}">Data Bayi</a></li>
         <li><a href="{{ url('logout') }}">
             Logout</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-          <li><a href="{{ url('/kader') }}">Home</a></li>
-          <li><a href="{{ url('babydata') }}">Masukkan Data Bayi</a></li>
+          <li><a href="{{ url('/kader') }}">Data Imunisasi</a></li>
+          <li><a href="{{ url('babydata') }}">Data Bayi</a></li>
           <li><a href="{{ url('logout') }}">
               Logout</a></li>
         </ul>

@@ -149,16 +149,6 @@
                         <tr>
                             <td>
                                 <strong>
-                                    Jenis Kelamin
-                                </strong>
-                            </td>
-                            <td>
-                                {{--todo--}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>
                                     Usia
                                 </strong>
                             </td>
@@ -172,7 +162,9 @@
                                     Tanggal lahir
                                 </strong>
                             </td>
-                            <td>{{ $item->birth_date }}</td>
+                            <td>
+                                {{ date('d F Y', strtotime($item->birth_date)) }}
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -180,7 +172,7 @@
                                     Tinggi / Berat Badan
                                 </strong>
                             </td>
-                            <td>{{ $item->height }} cm / {{ $item->weight }} kilogram</td>
+                            <td>{{ $item->height }} cm <br> {{ $item->weight }} kilogram</td>
                         </tr>
                         <tr>
                             <td>
