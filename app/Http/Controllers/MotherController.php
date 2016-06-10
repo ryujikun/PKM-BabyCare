@@ -192,4 +192,15 @@ class MotherController extends Controller
         return view($this->viewPrefix.'ibusiaga');
 
     }
+
+    public function profil(){
+        $data['item'] = $request->user();
+        return view('pages.dashboard', $data);
+    }
+
+
+    public function profilPost(Request $request){
+        $data['item'] = $request->user();
+        return view('pages.dashboard', $data);
+    }
 }

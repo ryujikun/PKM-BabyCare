@@ -30,10 +30,13 @@ Route::group(['middleware' => ['web', 'roles']], function () {
         Route::post('pertumbuhanku','MotherController@pertumbuhanku');
         Route::get('pertumbuhanku/jadwal', 'MotherController@jadwal');
         Route::get('ibusiaga','MotherController@ibusiaga');
+        Route::get('profil','MotherController@profil');
+        Route::post('profil','MotherController@profilPost');
     });
 
     Route::group(['roles'=>3 ], function () {
-        Route::get('answer', 'DoctorController@index');
+        Route::get('doctor', 'DoctorController@questions');
+        Route::get('answer', 'DoctorController@unanswered');
         Route::get('answer/{id}', 'DoctorController@answer');
         Route::post('answer/{id}', 'DoctorController@answer');
         Route::get('question', 'DoctorController@index');

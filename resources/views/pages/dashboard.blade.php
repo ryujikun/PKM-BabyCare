@@ -17,7 +17,7 @@
     <div class="section white">
         <div class="row container">
             <h3 class="header">{{ $item->name }}</h3>
-            <h6 class="header flow-text" href=""> <u><i class="material-icons left">mode_edit</i>
+            <h6 class="header flow-text" href="{{ url('profil') }}"> <u><i class="material-icons left">mode_edit</i>
                    Edit Profil Anda</u>
                 </h6>
             <hr>

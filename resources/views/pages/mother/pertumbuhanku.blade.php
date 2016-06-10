@@ -6,7 +6,7 @@
 
     @section('content')
 
-    </div>
+    @include('partials.sheets_script')
 
     @if(isset($alert))
         <div class="section no-pad-bot" id="index-banner">

@@ -1,8 +1,10 @@
-
 <footer class="page-footer blue">
+  <div class="container">
+  </div>
   <div class="footer-copyright">
     <div class="container">
-      Made by <a class="white-text text-lighten-3" href="http://materializecss.com">Baby Care</a>
+      © 2016 Babycare
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
     </div>
   </div>
 </footer>

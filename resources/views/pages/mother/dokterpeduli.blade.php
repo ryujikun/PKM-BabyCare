@@ -30,8 +30,8 @@
                     @if($item->answer_id)
                         <h4 class=" flow-text right-align">Answer</h4>
                         <ul class="collection">
-                            <li class="collection-item green lighten-5">
-                                {{ $item->answer->answer }}
+                            <li class="collection-item green right-align lighten-5">
+                                {{ $item->answer->body }}
                             </li>
                         </ul>
                     @endif

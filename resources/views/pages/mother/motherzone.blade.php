@@ -4,44 +4,52 @@
     BabyCare : Dokter Peduli
     @endsection
 
+@section('nav-title')
+    Zona Ibu
+    @endsection
+
     @section('content')
 
-    </div>
-
-
     <div class="container-fluid">
-        <blockquote>
             {{--{{ dd($success) }}--}}
             @if ($errors->has())
+            <blockquote>
                 @foreach ($errors->all() as $error)
                     <span class="red-text">
                         {{ $error }}
-                    </span> <br>
+                    </span>
+            </blockquote>
+
                 @endforeach
             @elseif (isset($success))
+            <blockquote>
                 <span class="green-text">
                     {{ $success }}
-                </span>
+            </blockquote>
             @endif
 
-        </blockquote>
-
         <div class="row">
-            <div class="col s12">
+            <ul class="collection">
+
                 @foreach($items as $item)
-                <div class="card">
-                    <div class="card-content">
-                        <p class="flow-text">{{ $item->user->name }}</p>
-                        <p> {{ $item->created_at }}</p>
-                        <hr>
+                    <li class="collection-item avatar">
+                        <img class="s2 circle responsive-img" style="margin-top:1em;max-height:12em" src="{{ Auth::user()->path_picture ? url('images/web/'.Auth::user()->path_picture) : url('images/motherDefaultPic.png')  }}">
+                        <span class="title truncate">
+                            {{ $item->user->name }}
+                        </span>
+                            <span class="small">
+                                {{ $item->created_at }}
+                            </span>
                         @if($item->path_picture)
                             <img class='materialboxed' width='100%' src="{{url('images/web/'.$item->path_picture)}}">
                         @endif
                         <p>{{ $item->body }}</p>
-                    </div>
-                </div>
+
+                    </li>
+                    <br>
                 @endforeach
-            </div>
+            </ul>
+
         </div>
 
     </div>
@@ -75,9 +83,6 @@
                             <span>File</span>
                             <input type="file"
                                    name='image' accept="image/*" onchange="loadFile(event)">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
                         </div>
                     </div>
                     <script>
