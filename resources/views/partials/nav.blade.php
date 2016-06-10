@@ -23,7 +23,7 @@
         <li><a href="{{ url('explore') }}">Zona Bayi</a></li>
         <li><a href="{{ url('motherzone') }}">Zona Ibu</a></li>
         <li><a href="{{ url('pertumbuhanku') }}">Pertumbuhanku</a></li>
-        <li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>
+        {{--<li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>--}}
         <li><a href="{{ url('logout') }}">
             Logout</a></li>
         </ul>
@@ -34,7 +34,7 @@
           <li><a href="{{ url('explore') }}">Zona Bayi</a></li>
           <li><a href="{{ url('motherzone') }}">Zona Ibu</a></li>
           <li><a href="{{ url('pertumbuhanku') }}">Pertumbuhanku</a></li>
-          <li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>
+          {{--<li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>--}}
           <li><a href="{{ url('logout') }}">
               Logout</a></li>
         </ul>

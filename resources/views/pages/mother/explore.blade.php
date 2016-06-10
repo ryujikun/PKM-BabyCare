@@ -34,25 +34,26 @@
     <div class="fluid-container">
         <div class="row">
             @foreach($items as $item)
-            <div class="col s6">
-                <div class="card">
+            <div class="col s4  no-pad no-margin">
+                <div class="card  no-pad no-margin">
                     <div class="card-image">
                         <img class="materialboxed" src="{{url('/images/web/'.$item->path_picture)}}">
                     </div>
                 </div>
             </div>
             @endforeach
-            <div class="col s6">
-                <div class="card">
-                    <div class="card-image">
-                        <img  class="materialboxed" src="{{url('images/baby1.jpg')}}" style="max-height: 100%">
+            <div class="col s4  no-pad no-margin">
+                <div class="card  no-pad no-margin ">
+                    <div class="card-image  no-pad no-margin">
+                        <img  class="materialboxed  no-pad no-margin" src="{{url('images/baby1.jpg')}}" >
                     </div>
                 </div>
             </div>
-            <div class="col s6">
-                <div class="card">
-                    <div class="card-image">
-                        <img class="materialboxed" src="{{url('images/baby2.jpg')}}" style="max-height: 100%">
+            <div class="col s4  no-pad no-margin">
+                <div class="card  no-pad no-margin">
+                    <div class="card-image  no-pad no-margin">
+                        <img class="materialboxed  no-pad no-margin" src="{{url('images/baby2.jpg')}}">
+
                     </div>
                 </div>
             </div>

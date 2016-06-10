@@ -73,12 +73,10 @@ class MotherController extends Controller
             {
                 $post->path_picture = $path_picture;
                 $post->save();
-                return view($this->viewPrefix . 'explore', $data)
-                    ->with('success', 'Gambar telah sukses diupload!');
+                return redirect('explore');
             } else
             {
-                return view($this->viewPrefix . 'explore', $data)
-                    ->with('error', 'Maaf ada kesalahan, silahkan coba lagi.');
+                return redirect('explore');
             }
 
         }
