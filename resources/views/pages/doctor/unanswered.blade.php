@@ -10,7 +10,7 @@
         <div class="col">
             <ul class="collection">
 
-                @if(isset($items))
+                @if(!isset($items))
 
 
                     <div class="parallax-container " style="max-height:15em;">

@@ -34,6 +34,33 @@
                     </li>
                 </ul>
 
+                @if(isset($lastQuestion))
+                    <h4 class="header">
+                        Pertanyaan sebelumnya :
+                    </h4>
+                    @foreach($lastQuestion as $item)
+                        <ul class="collection">
+                            <li class="collection-item">
+                                Ibu : {{ $item->question }}
+                            </li>
+
+                            @if($item->answer_id)
+
+                                <li class="collection-item blue lighten-5">
+                                    Dokter : {{ $item->answer->body }}
+                                </li>
+                            @endif
+
+                        </ul>
+                        <br>
+                    @endforeach
+                @else
+                    <h5>
+                        Tidak ada pertanyaan sebelumnya
+                    </h5>
+
+                @endif
+
                 <form class="col s12" role="form" method="POST" action="">
                     {{ csrf_field() }}
 

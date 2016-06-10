@@ -15,7 +15,7 @@ class HomeController extends Controller
             elseif(Auth::user()->isDoctor()) return redirect('/question');
             elseif(Auth::user()->isKader()) return redirect('/kader');
         }
-        else return view('pages.landing');
+        else return view('pages.landing2');
     }
 
 

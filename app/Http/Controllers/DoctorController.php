@@ -46,6 +46,7 @@ class DoctorController extends Controller
     public function answer($id, Request $request){
         if($request->isMethod('get')){
             $data['item'] = Question::find($id);
+            $data['lastQuestion'] = Question::where('user_id', Question::find($id)->user->id)->get();
             return view($this->modelView.'answer', $data);
         }
         elseif($request->isMethod('post')){

@@ -39,11 +39,10 @@
             <div class="container">
 
                 <h3>
-                    Ups!
+                    Selamat Datang!
                 </h3>
                 <h5 class="blue-text">
-                    Semua pertanyaan sudah terjawab.
-
+                    Dokter {{ Auth::user()->name }}
                 </h5>
             </div>
         </div>
