@@ -4,6 +4,10 @@
     BabyCare : Pertumbuhanku
     @endsection
 
+@section('nav-title')
+    Pertumbuhanku
+@endsection
+
     @section('content')
 
     @include('partials.sheets_script')
@@ -126,13 +130,22 @@
         </div>
         <div class="section white">
             <div class="row container">
-                <h3 class="header">{{ $item->name }}</h3>
-                <hr>
                 <h4 class="header ">Data Bayi</h4>
+                <hr>
                 <div class="s12 l6">
 
                     <table class="bordered">
                         <tbody>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Nama
+                                </strong>
+                            </td>
+                            <td>
+                                {{ $item->name }}
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <strong>
@@ -182,28 +195,51 @@
             </div>
                 <br>
                 <h4 class="header ">Jadwal Imunisasi</h4>
-                <div class="s12 l6"></div>
+
+                @if(isset($item->document_index))
+                    <div class="s12" id="jadwal">
+                    </div>
+                @else
+                    <div class="s12 grey lighten-4">
+                        <blockquote>
+                            <br>
+                            <h5 class="red-text">
+                                <i class="material-icons">warning</i> Data Imunisasi Bayi Anda tidak tersedia
+                            </h5
+                            <strong>Segera kunjungi posyandu dan minta kader posyandu mengunggah data bayi anda.<br></strong>
+                            <br>
+                        </blockquote>
+                    </div>
+                @endif
         </div>
         </div>
 
             @endif
 
 
-
 @endsection
 
-@section('custom-foot')
+@section('custom_foot')
 
     <script type="text/javascript">
+//        var json;
         $(document).ready(function(){
 
-            $('.datepicker').pickadate({
-                min: new Date(1990,3,20),
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15 // Creates a dropdown of 15 years to control year
-                formatSubmit: 'yyyy-mm-dd',
-                hiddenName: true
+            $.ajax({
+                url : "{{ url('json/'.Auth::user()->baby_id) }}",
+                type : "GET",
+                dataType : 'json',
+                success : function(data) {
+                    console.log(data);
+
+                    var container = document.getElementById('jadwal');
+                    var hot = new Handsontable(container, {
+                        data: data,
+                        dropdownMenu: true
+                    });
+                }
             });
+
 
         });
 

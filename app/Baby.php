@@ -12,11 +12,11 @@ class Baby extends Model
 
     protected $fillable = [
         'name','birth_date', 'height', 'weight', 'condition',
-        'id_picture', 'document_index'
+        'id_picture', 'document_index','mother_id'
     ];
 
     public function mother()
     {
-        return $this->belongsTo('App\User','mother_id');
+        return $this->hasOne('App\User','baby_id','id');
     }
 }

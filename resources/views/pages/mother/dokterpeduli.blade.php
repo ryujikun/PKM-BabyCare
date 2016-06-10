@@ -1,7 +1,11 @@
 @extends('layouts.templates')
 
 @section('page-title')
-    BabyCare : Dokter Peduli
+    Dokter Peduli : Babycare
+    @endsection
+
+@section('nav-title')
+    Dokter
     @endsection
 
     @section('content')
@@ -28,7 +32,7 @@
                         </li>
                     </ul>
                     @if($item->answer_id)
-                        <h4 class=" flow-text right-align">Answer</h4>
+                        <h5 class=" flow-text right-align">Dokter : </h5>
                         <ul class="collection">
                             <li class="collection-item green right-align lighten-5">
                                 {{ $item->answer->body }}

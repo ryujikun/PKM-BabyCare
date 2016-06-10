@@ -14,7 +14,9 @@
 Route::get('/', 'HomeController@index');
 
 Route::auth();
-//
+
+Route::get('json/{baby_id}', 'AjaxController@getJson');
+
 Route::group(['middleware' => ['web', 'roles']], function () {
 
     Route::group(['roles' => 1], function() {
@@ -32,6 +34,11 @@ Route::group(['middleware' => ['web', 'roles']], function () {
         Route::get('ibusiaga','MotherController@ibusiaga');
         Route::get('profil','MotherController@profil');
         Route::post('profil','MotherController@profilPost');
+    });
+
+    Route::group(['roles'=>2 ], function () {
+        Route::get('kader', 'KaderController@index');
+
     });
 
     Route::group(['roles'=>3 ], function () {

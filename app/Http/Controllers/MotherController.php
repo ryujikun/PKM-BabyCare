@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Baby;
+use App\Excel;
 use App\Post;
 use App\Question;
 use App\Timeline;
@@ -131,10 +132,13 @@ class MotherController extends Controller
         if($request->isMethod('get')){
             $data['content_title'] = 'Pertumbuhanku';
             $data['alert'] = null;
+            
             if(Auth::user()->baby_id==null){
                 return view($this->viewPrefix.'pertumbuhanku')
                     ->withAlert('Anda belum memasukkan data bayi anda.');
-            }else{
+            }else
+            {
+
                 $data['item']  = Baby::find($request->user()->baby_id);
                 return view($this->viewPrefix.'pertumbuhanku', $data);
 

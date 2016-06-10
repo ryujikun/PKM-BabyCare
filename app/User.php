@@ -46,6 +46,6 @@ class User extends Authenticatable
     }
 
     public function baby(){
-        return $this->hasOne('App\Baby');
+        return $this->belongsTo('App\Baby','baby_id');
     }
 }

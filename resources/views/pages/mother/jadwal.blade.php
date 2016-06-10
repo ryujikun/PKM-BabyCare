@@ -4,6 +4,10 @@
     Jadwal
     @endsection
 
+@section('nav-title')
+    Jadwal
+    @endsection
+
     @section('content')
 
     </div>

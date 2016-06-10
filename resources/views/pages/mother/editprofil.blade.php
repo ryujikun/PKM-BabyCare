@@ -1,7 +1,11 @@
 @extends('layouts.templates')
 
 @section('page-title')
-    BabyCare : Home
+    Profil : BabyCare
+    @endsection
+
+@section('nav-title')
+    Ubah Profil
     @endsection
 
     @section('content')

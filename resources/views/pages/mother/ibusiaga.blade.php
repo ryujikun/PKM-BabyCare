@@ -4,6 +4,9 @@
     BabyCare : Ibu Siaga
     @endsection
 
+@section('nav-title')
+    Ibu Siaga
+    @endsection
     @section('content')
 
     </div>

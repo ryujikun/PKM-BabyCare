@@ -2,7 +2,8 @@
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" class="brand-logo">
-            @yield('nav-title')
+            {{--@yield('nav-title')--}}
+            BabyCare
       </a>
       <ul class="right hide-on-med-and-down">
 
