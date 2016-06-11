@@ -38,7 +38,7 @@
                             {{ $item->user->name }}
                         </span>
                             <span class="small">
-                                {{ $item->created_at }}
+                                {{ date(' F j, Y, g:i a ', strtotime($item->created_at)) }}
                             </span>
                         @if($item->path_picture)
                             <img class='materialboxed' width='100%' src="{{url('images/web/'.$item->path_picture)}}">

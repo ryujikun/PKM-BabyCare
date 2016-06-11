@@ -42,7 +42,7 @@
                             </strong>
                         </td>
                         <td>
-                            {{ $item->birth_date }}
+                            {{ date('d F Y', strtotime($item->birth_date)) }}
                         </td>
                     </tr>
                     <tr>
