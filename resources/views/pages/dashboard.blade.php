@@ -16,8 +16,8 @@
     </div>
     <div class="section white">
         <div class="row container">
-            <a class="btn-floating btn-large red right" href="{{ url('editProfil') }}">
-                <i class="large material-icons">mode_edit</i>
+            <a class="btn-floating btn-large blue right" href="{{ url('editProfil') }}">
+                <i class="large material-icons">mode_edit</i> Ubah Profil anda
             </a>
             <h3 class="header">{{ $item->name }}</h3>
             <a class="flow-text">Profil Anda</a>

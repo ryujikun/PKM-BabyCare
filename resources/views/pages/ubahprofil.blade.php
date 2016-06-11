@@ -13,7 +13,7 @@
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             <div class="row">
-                <form class="col s12" role="form" method="POST" action="{{ url('/register') }}">
+                <form class="col s12" role="form" method="post" action="" enctype="multipart/form-data">
                     <h2 class="header">Ubah Profil</h2>
                     <br>
                     {{ csrf_field() }}
@@ -82,7 +82,8 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-large waves-effect waves-light right" type="submit" name="action">Daftar Sekarang
+                    <button class="btn btn-large waves-effect waves-light right" type="submit" name="action">
+                        Perbarui Profil
                         <i class="material-icons right">send</i>
                     </button>
                 </form>

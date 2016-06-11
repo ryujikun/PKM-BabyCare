@@ -18,11 +18,11 @@
         <li><a href="{{ url('/register') }}">Register</a></li>
       </ul>
       @elseif(Auth::user()->isMommy())
-        <li><a href="{{ url('/mother') }}">Home</a></li>
         <li><a href="{{ url('dokterpeduli') }}">Dokter Peduli</a></li>
         <li><a href="{{ url('explore') }}">Zona Bayi</a></li>
         <li><a href="{{ url('motherzone') }}">Zona Ibu</a></li>
         <li><a href="{{ url('pertumbuhanku') }}">Pertumbuhanku</a></li>
+        <li><a href="{{ url('/mother') }}">Profil</a></li>
         {{--<li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>--}}
         <li><a href="{{ url('logout') }}">
             Logout</a></li>
@@ -34,6 +34,7 @@
           <li><a href="{{ url('explore') }}">Zona Bayi</a></li>
           <li><a href="{{ url('motherzone') }}">Zona Ibu</a></li>
           <li><a href="{{ url('pertumbuhanku') }}">Pertumbuhanku</a></li>
+          <li><a href="{{ url('/mother') }}">Profil</a></li>
           {{--<li><a href="{{ url('ibusiaga') }}">Ibu Siaga</a></li>--}}
           <li><a href="{{ url('logout') }}">
               Logout</a></li>
@@ -42,6 +43,7 @@
         <li><a href="{{ url('doctor') }}">Home</a></li>
         <li><a href="{{ url('answer') }}">Jawab Pertanyaan</a></li>
         <li><a href="{{ url('question') }}">Daftar Pertanyaan</a></li>
+        <li><a href="{{ url('profil') }}">Profil</a></li>
         <li><a href="{{ url('logout') }}">
             Logout</a></li>
         </ul>
@@ -50,12 +52,14 @@
           <li><a href="{{ url('doctor') }}">Home</a></li>
           <li><a href="{{ url('answer') }}">Jawab Pertanyaan</a></li>
           <li><a href="{{ url('question') }}">Daftar Pertanyaan</a></li>
+          <li><a href="{{ url('profil') }}">Profil</a></li>
           <li><a href="{{ url('logout') }}">
               Logout</a></li>
         </ul>
       @elseif(Auth::user()->isKader())
         <li><a href="{{ url('/kader') }}">Data Imunisasi</a></li>
         <li><a href="{{ url('babydata') }}">Data Bayi</a></li>
+        <li><a href="{{ url('profil') }}">Profil</a></li>
         <li><a href="{{ url('logout') }}">
             Logout</a></li>
         </ul>
@@ -63,6 +67,7 @@
         <ul id="nav-mobile" class="side-nav">
           <li><a href="{{ url('/kader') }}">Data Imunisasi</a></li>
           <li><a href="{{ url('babydata') }}">Data Bayi</a></li>
+          <li><a href="{{ url('profil') }}">Profil</a></li>
           <li><a href="{{ url('logout') }}">
               Logout</a></li>
         </ul>
