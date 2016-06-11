@@ -19,10 +19,14 @@ Route::get('json/{baby_id}', 'AjaxController@getJson');
 
 Route::group(['middleware' => ['web', 'roles']], function () {
 
+    Route::group(['roles'=> [1,2,3]], function () {
+        Route::get('editProfil', 'HomeController@profil');
+        Route::post('editProfil', 'HomeController@profilPost');
+        Route::get('profil','MotherController@profil');
+    });
     Route::group(['roles'=> [1,2]], function () {
         Route::get('babydata/{id}', 'KaderController@updateBaby');
         Route::post('babydata/{id}', 'KaderController@updateBabyPost');
-
     });
     Route::group(['roles' => 1], function() {
 
@@ -37,8 +41,6 @@ Route::group(['middleware' => ['web', 'roles']], function () {
         Route::post('pertumbuhanku','MotherController@pertumbuhanku');
         Route::get('pertumbuhanku/jadwal', 'MotherController@jadwal');
         Route::get('ibusiaga','MotherController@ibusiaga');
-        Route::get('profil','MotherController@profil');
-        Route::post('profil','MotherController@profilPost');
     });
 
     Route::group(['roles'=>2 ], function () {

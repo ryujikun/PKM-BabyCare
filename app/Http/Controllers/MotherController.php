@@ -195,14 +195,9 @@ class MotherController extends Controller
 
     }
 
-    public function profil(){
+    public function profil(Request $request){
         $data['item'] = $request->user();
         return view('pages.dashboard', $data);
     }
 
-
-    public function profilPost(Request $request){
-        $data['item'] = $request->user();
-        return view('pages.dashboard', $data);
-    }
 }

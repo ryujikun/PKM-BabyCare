@@ -16,14 +16,10 @@
     </div>
     <div class="section white">
         <div class="row container">
+            <a class="btn-floating btn-large red right" href="{{ url('editProfil') }}">
+                <i class="large material-icons">mode_edit</i>
+            </a>
             <h3 class="header">{{ $item->name }}</h3>
-            <h6 class="header flow-text" href="{{ url('profil') }}"> <u><i class="material-icons left">mode_edit</i>
-                   Edit Profil Anda</u>
-                </h6>
-            <hr>
-
-
-            <br>
             <a class="flow-text">Profil Anda</a>
             <div class="s12 l6">
 

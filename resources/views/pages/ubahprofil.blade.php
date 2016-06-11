@@ -1,23 +1,26 @@
-@extends('layouts.authtemplate')
+@extends('layouts.templates')
 
 @section('page-title')
-    Register Babycare
+    Ubah Profil : BabyCare
+@endsection
+
+@section('nav-title')
+    Ubah Profil
 @endsection
 
 @section('content')
-
-</div>
 
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             <div class="row">
                 <form class="col s12" role="form" method="POST" action="{{ url('/register') }}">
-                    <h2 class="header">Register BabyCare</h2>
+                    <h2 class="header">Ubah Profil</h2>
                     <br>
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="Nama lengkap" id="first_name" type="text" name='name' class="validate">
+                            <input placeholder="Nama lengkap" id="name" type="text" name='name' class="validate"
+                                    value="{{ $item->name }}">
                             <label for="name">Nama Lengkap</label>
 
                             @if ($errors->has('name'))
@@ -29,7 +32,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="date" id="datepicker" name='birth_date'>
+                            <input type="date" name='birth_date' id="datepicker"  value="{{ $item->birth_date }}">
                             <label for="birth_date">Tanggal Lahir</label>
                             @if ($errors->has('birth_date'))
                                 <span class="red-text text-darken-1">
@@ -41,54 +44,21 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <label for="address">Alamat</label>
-                            <textarea id="address" name='address' class="materialize-textarea"></textarea>
+                            <textarea id="address" name='address' class="materialize-textarea">{{ $item->address }}</textarea>
                             @if ($errors->has('address'))
                                 <span class="red-text text-darken-1">
                                         <strong>{{ $errors->first('address') }}</strong>
                                     </span>
-                            @endif  
+                            @endif
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="phone" type="number" name='phone' class="validate">
+                            <input id="phone" type="number" name='phone' class="validate"  value="{{ $item->phone }}">
                             <label for="phone">Nomor Telefon</label>
                             @if ($errors->has('phone'))
                                 <span class="red-text text-darken-1">
                                         <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" name='email' class="validate">
-                            <label for="email">Email</label>
-                            @if ($errors->has('email'))
-                                <span class="red-text text-darken-1">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" name='password' type="password" class="validate">
-                            <label for="password">Password</label>
-                            @if ($errors->has('password'))
-                                <span class="red-text text-darken-1">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password_confirmation" name='password_confirmation' type="password" class="validate">
-                            <label for="password_confirmation">Konfirmasi Password</label>
-                            @if ($errors->has('password_confirmation'))
-                                <span class="red-text text-darken-1">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
                             @endif
                         </div>
@@ -99,7 +69,7 @@
                             <div class="file-field input-field">
                                 <div class="btn">
                                     <span>Foto Profil</span>
-                                    <input name="path_image" accept="image/*" type="file">
+                                    <input name="image" accept="image/*" type="file">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text" placeholder="Unggah Foto Profil anda disini">
@@ -126,13 +96,19 @@
 @section('custom-foot')
 
     <script type="text/javascript">
-        $('#address').val('New Text');
-        $('#address').trigger('autoresize');
+        $(document).ready(function(){
 
-        $('#datepicker').pickadate({
-            selectYears:true,
-            selectYears: 60,
-            formatSubmit: 'yyyy-mm-dd'
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal({
+
+                dismissible: true, // Modal can be dismissed by clicking outside of the modal
+                opacity: .5, // Opacity of modal background
+                in_duration: 300, // Transition in duration
+                out_duration: 200, // Transition out duration
+                starting_top: '4%', // Starting top style attribute
+                ending_top: '10%',
+                height:'50%'// Ending top style attribute
+            });
         });
 
     </script>
