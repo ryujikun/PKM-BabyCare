@@ -36,27 +36,18 @@
             @foreach($items as $item)
             <div class="col s4  no-pad no-margin">
                 <div class="card  no-pad no-margin">
-                    <div class="card-image">
-                        <img class="materialboxed" src="{{url('/images/web/'.$item->path_picture)}}">
+                    <div class="card-image" style="position: relative;">
+                       <form action="{{URL::to('hapusfoto')}}" method="POST">
+                           <input type="hidden" value="{{$item->id}}" name="idfoto">
+                           {{csrf_field()}}
+                           <!-- <button type="submit">DELETE</button> -->
+                           <input type="image" src="{{URL::to('images/delete.png')}}" style="margin:10px;z-index:3;position: absolute;"></input>
+                       </form>
+                       <img class="materialboxed" src="{{url('/images/web/'.$item->path_picture)}}" style="z-index: 2;">
                     </div>
                 </div>
             </div>
             @endforeach
-            <div class="col s4  no-pad no-margin">
-                <div class="card  no-pad no-margin ">
-                    <div class="card-image  no-pad no-margin">
-                        <img  class="materialboxed  no-pad no-margin" src="{{url('images/baby1.jpg')}}" >
-                    </div>
-                </div>
-            </div>
-            <div class="col s4  no-pad no-margin">
-                <div class="card  no-pad no-margin">
-                    <div class="card-image  no-pad no-margin">
-                        <img class="materialboxed  no-pad no-margin" src="{{url('images/baby2.jpg')}}">
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

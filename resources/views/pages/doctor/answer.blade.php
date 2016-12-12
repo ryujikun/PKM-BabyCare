@@ -11,6 +11,7 @@
 
     </div>
 
+
     <div class="section" id="index-banner">
         <div class="container">
             <div class="row">
@@ -20,6 +21,8 @@
             </div>
         </div>
     </div>
+    /*$item adalah variabel yang dipassing dari DoctorController pada fungsi answer yang
+    menampung hasil query dari atrubut question*/
         <div class="container">
             <div class="row">
                 <ul class="collection">

@@ -10,6 +10,14 @@ use App\Http\Requests;
 
 class DoctorController extends Controller
 {
+
+    private function question_list()
+    {
+        $data['items'] = Question::all();
+        $data['content_title'] = 'Daftar Pertanyaan';
+        return $data;
+    }
+
     protected function answerValidator(array $data)
     {
         return Validator::make($data, [
@@ -20,17 +28,14 @@ class DoctorController extends Controller
     private $modelView = 'pages.doctor.';
 
     public function index(Request $request){
-            $data['items'] = Question::all();
-            $data['content_title'] = 'Daftar Pertanyaan';
+            $this->question_list();
             $data['items'] = Question::orderBy('created_at', 'desc')->get();
             return view($this->modelView.'question', $data);
-
     }
 
     public function unanswered(Request $request){
         if($request->isMethod('get')){
-            $data['items'] = Question::all();
-            $data['content_title'] = 'Daftar Pertanyaan';
+            $this->question_list();
             $data['items'] = Question::where('answer_id',null)->orderBy('created_at', 'desc')->get();
             return view($this->modelView.'unanswered', $data);
         }

@@ -18,7 +18,10 @@
                         <p>
                             <strong>Pertanyaan belum terjawab</strong>
                         </p>
-                        <h2> {{ $blmTerjawab }} </h2>
+                        
+                         <h2>{{$blmTerjawab}}</h2>
+                        
+                    
                     </div>
                 </div>
             </div>
@@ -28,7 +31,7 @@
                         <p>
                             <strong>Pertanyaan baru hari ini</strong>
                         </p>
-                        <h2> {{ $hariIni }} </h2>
+                         <h2>{{$hariIni}}</h2>
                     </div>
                 </div>
             </div>

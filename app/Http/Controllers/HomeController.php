@@ -8,15 +8,12 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\RefactorController;
+use Input;
+use App\UserRole;
 
 class HomeController extends Controller
 {
-    private function imageValidator($data){
-        return Validator::make($data, [
-            'image' => 'required|mimes:jpeg,png,jpg,gif|max:1024',
-        ]);
-
-    }
     public function index()
     {
         if(Auth::check()){
@@ -44,7 +41,8 @@ class HomeController extends Controller
         if($user->update($formInput)){
             if($request->only('image')){
                 $file = $request->file('image');
-                $validator = $this->imageValidator($request->only('image'));
+                $valid = new RefactorController();
+                $validator = $valid->imageValidator($request->only('image'));
 
                 if ($validator->fails()) {
                     $this->throwValidationException($request, $validator);
@@ -65,5 +63,43 @@ class HomeController extends Controller
         return redirect('/profil');
     }
 
+    public function register(){
+        $data = Input::all();
+        $pass = bcrypt($data['password']);
+        $role=$data['role'];
+      user::InsertGetId(array(
+            'name'=>$data['name'],
+            'email'=>$data['email'],
+            'password'=>$pass,
+            'address'=>$data['address'],
+            'birth_date'=>$data['birth_date'],
+            'phone'=>$data['phone']
 
+            ));
+
+        $iduser=user::where('email','=',$data['email'])->get();
+       foreach ($iduser as $key => $value) {
+          $id=$value->id;
+          
+          if($role=='ibu'){
+             userrole::InsertGetId(array(
+            'user_id'=>$id,
+            'role_id'=>'1'
+            ));
+          }
+         elseif ($role=='dokter') {
+             userrole::InsertGetId(array(
+            'user_id'=>$id,
+            'role_id'=>'3'
+            ));
+         }
+         else{
+             userrole::InsertGetId(array(
+            'user_id'=>$id,
+            'role_id'=>'2'
+            ));
+         }
+       }
+       return redirect('/login');
+    }
 }

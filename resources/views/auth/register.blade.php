@@ -11,8 +11,8 @@
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             <div class="row">
-                <form class="col s12" role="form" method="POST" action="{{ url('/register') }}">
-                    <h2 class="header">Register BabyCare</h2>
+                <form class="col s12" role="form" method="POST" action="{{ URL::to('daftar')}}">
+                    <h2 class="header">Register BassbyCare</h2>
                     <br>
                     {{ csrf_field() }}
                     <div class="row">
@@ -72,6 +72,23 @@
                         </div>
                     </div>
                     <div class="row">
+                     <label for="email">Kategori</label>
+
+                        <div class="input-field col s12">
+                            <!-- <input id="role" name='role' type="text" class="validate"> -->
+                            <!-- <div style="margin-down:50px">   <label for="password">Kategori</label></div> -->
+                         
+
+                            <select name="role">
+                              <option value="ibu">ibu</option>
+                              <option value="dokter">dokter</option>
+                              <option value="kader">kader</option>
+                              <!-- <option value="audi">Audi</option> -->
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
                             <input id="password" name='password' type="password" class="validate">
                             <label for="password">Password</label>
@@ -82,6 +99,7 @@
                             @endif
                         </div>
                     </div>
+                      
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="password_confirmation" name='password_confirmation' type="password" class="validate">

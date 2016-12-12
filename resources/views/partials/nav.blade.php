@@ -1,5 +1,6 @@
 <div class="navbar-fixed">
   <nav class="light-blue lighten-1" role="navigation">
+
     <div class="nav-wrapper container">
       <a id="logo-container" class="brand-logo" href="{{ url('/') }}">
             {{--@yield('nav-title')--}}
@@ -46,6 +47,9 @@
         <li><a href="{{ url('profil') }}">Profil</a></li>
         <li><a href="{{ url('logout') }}">
             Logout</a></li>
+        <li><a id="notifications" href="{{URL::to('answer')}}" style="visibility: hidden;">
+                                Pertanyaan Baru
+                            </a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">

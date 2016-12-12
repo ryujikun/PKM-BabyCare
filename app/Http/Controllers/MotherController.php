@@ -8,21 +8,18 @@ use App\Post;
 use App\Question;
 use App\Timeline;
 use Carbon\Carbon;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\RefactorController;
+use App\Events\QuestionEvent;
+use Input;
 
 class MotherController extends Controller
 {
-    private function imageValidator($data){
-        return Validator::make($data, [
-            'image' => 'required|mimes:jpeg,png,jpg,gif|max:1024',
-        ]);
-
-    }
-
     public $viewPrefix = 'pages.mother.';
 
     public function index(Request $request){
@@ -41,7 +38,10 @@ class MotherController extends Controller
             $question = $request->all();
             $question['user_id'] = Auth::user()->id;
             if(Question::create($question)){
-                return redirect('dokterpeduli')->with('success','Sukses memposting pertanyaan anda.');
+                $nama = User::find($question['user_id']);
+                // echo $nama['name'];
+                event(new QuestionEvent($nama['name']));
+                // return redirect('dokterpeduli')->with('success','Sukses memposting pertanyaan anda.');
             }
             else{
                 return redirect('dokterpeduli')->with('danger','Maaf, ada kendala. Coba tanyakan lagi.');
@@ -60,7 +60,8 @@ class MotherController extends Controller
         }
         elseif ($request->isMethod('post')) {
             $file = $request->file('image');
-            $validator = $this->imageValidator($request->only('image'));
+            $valid = new RefactorController();
+            $validator = $valid->imageValidator($request->only('image'));
 
             if ($validator->fails()) {
                 $this->throwValidationException($request, $validator);
@@ -97,7 +98,8 @@ class MotherController extends Controller
             if($postItem){
                 if($request->only('image')){
                     $file = $request->file('image');
-                    $validator = $this->imageValidator($request->only('image'));
+                    $valid = new RefactorController();
+                    $validator = $valid->imageValidator($request->only('image'));
 
                     if ($validator->fails()) {
                         $this->throwValidationException($request, $validator);
@@ -152,18 +154,11 @@ class MotherController extends Controller
             $request->user()->save();
             if($postItem){
                 if($request->only('image')){
-                    $file = $request->file('image');
-                    $validator = $this->imageValidator($request->only('image'));
+                    $getReturnData = RefactorController::uploadPhoto($request->file('image'), $postItem, $request);
 
-                    if ($validator->fails()) {
-                        $this->throwValidationException($request, $validator);
-                    }
-
-                    $path_picture = 'baby-' . $postItem->id . '.'. $file->getClientOriginalExtension();
-
-                    if ($file->move(base_path() . '/public/images/web/' , $path_picture))
+                    if ($getReturnData['file']->move(base_path() . '/public/images/web/' , $getReturnData['path_picture']))
                     {
-                        $postItem->path_picture = $path_picture;
+                        $postItem->path_picture = $getReturnData['path_picture'];
                         $postItem->save();
                         return redirect('pertumbuhanku')
                             ->with('success', 'Gambar telah sukses diupload!');
@@ -198,6 +193,12 @@ class MotherController extends Controller
     public function profil(Request $request){
         $data['item'] = $request->user();
         return view('pages.dashboard', $data);
+    }
+
+    public function hapusfoto(){
+        $data=Input::all();
+        timeline::where("id","=",$data['idfoto'])->delete();
+        return redirect('/explore');
     }
 
 }

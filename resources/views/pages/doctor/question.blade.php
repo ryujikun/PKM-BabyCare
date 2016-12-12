@@ -8,8 +8,9 @@
 @endsection
 
     @section('content')
-
         <div class="container-fluid">
+        <!-- <p id="notifications" style="visibility: hidden;">hehehe</p> -->
+        
             <div class="col">
                 <ul class="collection">
 
@@ -51,10 +52,5 @@
 
 @section('custom-foot')
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-        });
-    </script>
 
 @endsection

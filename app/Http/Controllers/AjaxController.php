@@ -23,7 +23,7 @@ class AjaxController extends Controller
             return null;
         }
         else{
-            $lala = Excel::load('public/file/'.$file, function($reader) {
+            $datajson = Excel::load('public/file/'.$file, function($reader) {
 
                 // Getting all results
                 $results = $reader->get();
@@ -32,7 +32,7 @@ class AjaxController extends Controller
                 $results = $reader->all();
 
             })->get();
-            return json_encode($lala);
+            return json_encode($datajson);
         }
 
     }

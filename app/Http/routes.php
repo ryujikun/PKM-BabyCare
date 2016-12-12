@@ -17,6 +17,8 @@ Route::auth();
 
 Route::get('json/{baby_id}', 'AjaxController@getJson');
 
+Route::post('daftar', 'HomeController@register');
+
 Route::group(['middleware' => ['web', 'roles']], function () {
 
     Route::group(['roles'=> [1,2,3]], function () {
@@ -41,6 +43,7 @@ Route::group(['middleware' => ['web', 'roles']], function () {
         Route::post('pertumbuhanku','MotherController@pertumbuhanku');
         Route::get('pertumbuhanku/jadwal', 'MotherController@jadwal');
         Route::get('ibusiaga','MotherController@ibusiaga');
+        Route::post('hapusfoto','MotherController@hapusfoto');
     });
 
     Route::group(['roles'=>2 ], function () {

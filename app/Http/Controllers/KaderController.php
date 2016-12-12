@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Controllers\RefactorController;
 
 class KaderController extends Controller
 {
@@ -17,11 +18,10 @@ class KaderController extends Controller
         ]);
     }
 
-    private function imageValidator($data){
-        return Validator::make($data, [
-            'image' => 'required|mimes:jpeg,png,jpg,gif|max:1024',
-        ]);
-
+    private function findBaby($id)
+    {
+        $data['item'] = Baby::find($id);
+        return $data;
     }
 
     private $viewModel = 'pages.kader.';
@@ -33,13 +33,11 @@ class KaderController extends Controller
     }
 
     public function detail($id){
-        $data['item'] = Baby::find($id);
-        return view($this->viewModel.'detail', $data);
+        return view($this->viewModel.'detail', $this->findBaby($id));
     }
 
     public function upload($id){
-        $data['item'] = Baby::find($id);
-        return view($this->viewModel.'upload', $data);
+        return view($this->viewModel.'upload', $this->findBaby($id));
     }
 
     public function uploadPost(Request $request, $id){
@@ -50,7 +48,7 @@ class KaderController extends Controller
             $this->throwValidationException($request, $validator);
         }
 
-        $baby = Baby::find($id);
+        $baby = $this->findBaby($id);
         $path_picture = $id . '.'. $file->getClientOriginalExtension();
 
         if ($file->move(base_path() . '/public/file/' , $path_picture))
@@ -68,14 +66,13 @@ class KaderController extends Controller
     }
 
     public function updateBaby($id){
-        $data['item'] = Baby::find($id);
-        return view($this->viewModel.'profil', $data);
+        return view($this->viewModel.'profil', $this->findBaby($id));
     }
 
     public function updateBabyPost(Request $request,$id)
     {
         $data = $request->only('name','condition','birth_date','weight','height');
-        $baby = Baby::find($id);
+        $baby = $this->findBaby($id);
         $baby->birth_date = Carbon::parse(date('Y-m-d', strtotime($_POST["birth_date"])));
         $baby->name = $data['name'];
         $baby->condition = $data['condition'];
@@ -84,18 +81,10 @@ class KaderController extends Controller
 
         if($baby->save()){
             if($request->only('image')){
-                $file = $request->file('image');
-                $validator = $this->imageValidator($request->only('image'));
-
-                if ($validator->fails()) {
-                    $this->throwValidationException($request, $validator);
-                }
-
-                $path_picture = 'baby-' . $baby->id . '.'. $file->getClientOriginalExtension();
-
-                if ($file->move(base_path() . '/public/images/web/' , $path_picture))
+                $getReturnData = RefactorController::uploadPhoto($request->file('image'), $baby, $request);
+                if ($getReturnData['file']->move(base_path() . '/public/images/web/' , $getReturnData['path_picture']))
                 {
-                    $baby->path_picture = $path_picture;
+                    $baby->path_picture = $getReturnData['path_picture'];
                     $baby->save();
                 }
             }
